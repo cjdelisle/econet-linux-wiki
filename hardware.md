@@ -1,8 +1,8 @@
 ---
-title: EcoNet Hardware
+title: Hardware
 description: The specific EcoNet SoCs and their devices
 published: true
-date: 2025-03-20T02:04:57.885Z
+date: 2025-03-20T15:11:03.730Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:16:36.117Z
