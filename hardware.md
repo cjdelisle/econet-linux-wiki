@@ -2,7 +2,7 @@
 title: Hardware
 description: The specific EcoNet SoCs and their devices
 published: true
-date: 2025-03-20T15:38:42.290Z
+date: 2025-03-20T15:39:17.057Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:16:36.117Z
@@ -12,8 +12,6 @@ dateCreated: 2025-03-20T00:16:36.117Z
 EcoNet devices have some common hardware as well as some specific hardware to the sub-family.
 
 ```plantuml
-skinparam backgroundColor #f5f5f5
-
 ' Internal stuff
 [MIPS 34Kc / 1004Kc] -up-> [INTC]
 [MIPS 34Kc / 1004Kc] -up-> [CPU Timer]
