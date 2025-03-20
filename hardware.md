@@ -2,7 +2,7 @@
 title: EcoNet Hardware
 description: The specific EcoNet SoCs and their devices
 published: true
-date: 2025-03-20T00:34:19.301Z
+date: 2025-03-20T00:34:57.229Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:16:36.117Z
@@ -19,7 +19,7 @@ EcoNet devices have some common hardware as well as some specific hardware to th
   * USB
   * PCIe
   * SLIC PCM (VoIP)
-* EN751221
+* [EN751221](EN751221)
   * EN751221 SPI Controller
   * EN751221 Interrupt Controller
 * EN751627
