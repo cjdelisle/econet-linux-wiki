@@ -2,7 +2,7 @@
 title: EcoNet Hardware
 description: The specific EcoNet SoCs and their devices
 published: true
-date: 2025-03-20T00:16:36.117Z
+date: 2025-03-20T00:33:38.959Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:16:36.117Z
@@ -12,7 +12,7 @@ dateCreated: 2025-03-20T00:16:36.117Z
 EcoNet devices have some common hardware as well as some specific hardware to the sub-family.
 
 * Common
-  * "High Performance Timer" CPU Timer
+  * ["High Performance Timer" CPU Timer](hardware/econet-hpt)
   * Ethernet
   * XDSL
   * XPON
