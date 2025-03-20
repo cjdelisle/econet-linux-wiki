@@ -2,7 +2,7 @@
 title: EcoNet Hardware
 description: The specific EcoNet SoCs and their devices
 published: true
-date: 2025-03-20T01:54:31.604Z
+date: 2025-03-20T02:04:28.940Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:16:36.117Z
@@ -12,15 +12,15 @@ dateCreated: 2025-03-20T00:16:36.117Z
 EcoNet devices have some common hardware as well as some specific hardware to the sub-family.
 
 * Common
-  * ["High Performance Timer" CPU Timer](econet-hpt)
+  * ["High Performance Timer" CPU Timer](hardware/econet-hpt)
   * Ethernet
   * XDSL
   * XPON
   * USB
   * PCIe
   * SLIC PCM (VoIP)
-* [EN751221](/hardware/EN751221)
-  * EN751221 SPI Controller
-  * EN751221 Interrupt Controller
+* [EN751221](hardware/EN751221)
+  * [EN751221 SPI Controller](hardware/EN751221/en751221-spi)
+  * [EN751221 Interrupt Controller](hardware/EN751221/en751221-intc)
 * EN751627
   * EN751627 SPI Controller
