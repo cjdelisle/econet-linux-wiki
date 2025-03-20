@@ -1,8 +1,8 @@
 ---
-title: High Performance Timer
+title: High Precision Timer
 description: The timer device found on EcoNet chips
 published: true
-date: 2025-03-20T09:06:21.101Z
+date: 2025-03-20T09:07:04.640Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:32:52.921Z
