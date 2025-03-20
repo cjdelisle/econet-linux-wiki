@@ -2,14 +2,14 @@
 title: Hardware
 description: The specific EcoNet SoCs and their devices
 published: true
-date: 2025-03-20T15:39:17.057Z
+date: 2025-03-20T15:40:28.939Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:16:36.117Z
 ---
 
 # Hardware
-EcoNet devices have some common hardware as well as some specific hardware to the sub-family.
+EcoNet devices have some common hardware as well as some specific hardware to the sub-family. Below is a block diagram of the EcoNet SoCs, rounded objects are optional and square are always present.
 
 ```plantuml
 ' Internal stuff
