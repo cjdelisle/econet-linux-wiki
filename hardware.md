@@ -2,7 +2,7 @@
 title: Hardware
 description: The specific EcoNet SoCs and their devices
 published: true
-date: 2025-03-20T20:41:09.633Z
+date: 2025-03-20T21:45:34.028Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:16:36.117Z
@@ -51,6 +51,7 @@ skinparam dpi 150
     * XPON
     * XDSL
     * Ethernet switch
+    * QDMA
   * USB
   * PCIe
   * PCM
@@ -69,5 +70,6 @@ skinparam dpi 150
   * [EN7512 Ethernet Switch](/hardware/EN7512/en7512-switch)
   * [EN7512 GPIO Controller](/hardware/EN7512/en7512-gpio)
   * [EN7512 Frame Engine](/hardware/EN7512/en7512-fe)
+  * [EN7512 UART Controller](/hardware/EN7512/en7512-uart)
 * EN751627
   * EN751627 SPI Controller
