@@ -2,7 +2,7 @@
 title: Hardware
 description: The specific EcoNet SoCs and their devices
 published: true
-date: 2025-03-20T19:22:49.628Z
+date: 2025-03-20T19:35:42.148Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:16:36.117Z
@@ -31,6 +31,7 @@ EcoNet devices have some common hardware as well as some specific hardware to th
 [MIPS 34Kc / 1004Kc] --> [PCIe]
 [PCIe] --> [Wifi Chips]
 [MIPS 34Kc / 1004Kc] --> [USB]
+[MIPS 34Kc / 1004Kc] --> [I2C]
 
 ' Frame Engine stuff
 [MIPS 34Kc / 1004Kc] <-right-> [Frame Engine]
@@ -55,11 +56,15 @@ skinparam dpi 150
   * PCIe
   * PCM
   * GPIO
+  * GDMA
   * UART
   * Crypto
   * Memory
+  * I2C
+  * Timer
 * [EN751221](/hardware/EN751221)
   * [EN751221 SPI Controller](/hardware/EN751221/en751221-spi)
   * [EN751221 Interrupt Controller](/hardware/EN751221/en751221-intc)
+  * [EN7512 I2C Controller](/hardware/EN7512/en7512-i2c)
 * EN751627
   * EN751627 SPI Controller
