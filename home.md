@@ -2,7 +2,7 @@
 title: Main
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-03-19T19:54:51.908Z
+date: 2025-03-20T00:19:50.263Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -22,6 +22,7 @@ They have SPI NAND or NOR flash, PCIe, USB, Ethernet, SLIC (VoIP), and XDSL or X
 EcoNet (HK) Limited was a subsidiary of MediaTek who produced broadband devices. In 2021 they were bought by Airoha, another MediaTek subsidiary who makes ARM based broadband chips. EcoNet and Airoha devices have a fair bit in common, but EcoNet devices are MIPS, so the core devices are all quite unique.
 
 ## What chips are there?
+See: [Hardware](/hardware)
 * EN751221 chips
   * [EN7512](EN7512)
   * EN7513
