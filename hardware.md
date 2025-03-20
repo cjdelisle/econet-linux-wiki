@@ -2,7 +2,7 @@
 title: Hardware
 description: The specific EcoNet SoCs and their devices
 published: true
-date: 2025-03-20T19:21:45.463Z
+date: 2025-03-20T19:22:49.628Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:16:36.117Z
@@ -47,7 +47,8 @@ skinparam dpi 150
 * Common
   * ["High Precision Timer" CPU Timer](/hardware/econet-hpt)
   * Frame Engine
-    * XPON/XDSL
+    * XPON
+    * XDSL
     * Ethernet
     * Switch
   * USB
