@@ -2,7 +2,7 @@
 title: Hardware
 description: The specific EcoNet SoCs and their devices
 published: true
-date: 2025-03-20T15:40:28.939Z
+date: 2025-03-20T19:21:45.463Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:16:36.117Z
@@ -24,17 +24,18 @@ EcoNet devices have some common hardware as well as some specific hardware to th
 ' Interfaces
 [MIPS 34Kc / 1004Kc] --> [GPIO]
 [MIPS 34Kc / 1004Kc] --> [SPI]
+[MIPS 34Kc / 1004Kc] --> [SIMCARD]
 [SPI] --> [NOR / NAND Flash]
 [MIPS 34Kc / 1004Kc] --> [PCM]
 [PCM] --> (SLIC VoIP Port)
 [MIPS 34Kc / 1004Kc] --> [PCIe]
 [PCIe] --> [Wifi Chips]
 [MIPS 34Kc / 1004Kc] --> [USB]
-[MIPS 34Kc / 1004Kc] --> (XDSL)
 
 ' Frame Engine stuff
-[MIPS 34Kc / 1004Kc] -right-> [Frame Engine]
-[Frame Engine] -up-> (XPON)
+[MIPS 34Kc / 1004Kc] <-right-> [Frame Engine]
+[Frame Engine] -down-> [XPON/XDSL]
+[Frame Engine] <-right-> (QDMA)
 [Frame Engine] --> [Switch]
 [Switch] --> [LAN Ports]
 
@@ -46,10 +47,9 @@ skinparam dpi 150
 * Common
   * ["High Precision Timer" CPU Timer](/hardware/econet-hpt)
   * Frame Engine
-    * XPON
+    * XPON/XDSL
     * Ethernet
     * Switch
-  * XDSL
   * USB
   * PCIe
   * PCM
