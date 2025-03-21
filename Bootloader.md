@@ -2,13 +2,16 @@
 title: Bootloader
 description: The Tclinux / EcoNet bootloader
 published: true
-date: 2025-03-21T16:38:11.698Z
+date: 2025-03-21T16:40:48.317Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T16:38:11.698Z
 ---
 
 # Bootloader
+
+![bootloader.png](/bootloader.png)
+
 TcBoot is a minimalist bootloader derived from TrendChip's TC3262. It is unfortunately also something that is often patched and modified by vendors, so its behavior is not always the same.
 
 You can stop the bootloader from UART by pressing enter in the first seconds of device startup, it will leave you with a command prompt `bldr>`.
