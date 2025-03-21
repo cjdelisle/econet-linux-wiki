@@ -2,7 +2,7 @@
 title: Bootloader
 description: The Tclinux / EcoNet bootloader
 published: true
-date: 2025-03-21T16:40:48.317Z
+date: 2025-03-21T18:17:15.719Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T16:38:11.698Z
@@ -96,7 +96,47 @@ You'll need a serial terminal with XMODEM support.
       - To flash a trx file: `flash <flash-address> 80020000 <file-length-hex>` (e.g., `flash 80000 80020000 786630`).
       - To execute a kernel: `jump 80020000`
 
-## Available Commands
+## A/B Partitioning
+
+Many EcoNet devices use A/B partitioning, meaning there are two copies of the operating system stored in separate flash partitions (A and B). This design ensures that if a power outage or failure occurs during an upgrade, the device remains bootable from the unaffected partition, preventing it from becoming bricked. The selection of which partition to boot from is typically controlled by a boot flag stored in flash memory, with the exact mechanism and flash layout varying by device model and flash chip size.
+
+### Switching OS from the bootloader
+If you know the location of the boot flag, you can modify the boot flag directly from the TcBoot bootloader. **TP-LINK DEVICES USE A DIFFERENT FLAG, THIS DOES NOT WORK**
+
+1. **Enter the Bootloader**:
+   - Power on the device and interrupt the boot process (e.g., press a key within 3 seconds) to access the TcBoot prompt.
+   - Log in if necessary
+
+2. **Set the boot flag in memory**:
+   - For booting to partition A
+     ```
+     memwl 80020000 30000000
+     ```
+   - For booting to partition B
+     ```
+		 memwl 80020000 31000000
+     ```
+
+3. **Commit to flash**:
+   - Write the memory contents to the flash region storing the boot flag:
+     ```
+     flash <flash-address> 80020000 01
+     ```
+   - `<flash-address>`: The flash location for the boot flag (differs per device).
+
+4. **Reboot**:
+   - Restart the device to boot from the selected partition:
+     ```
+     go
+     ```
+     - Or power cycle manually.
+
+## BBT/BMT
+Devices with NAND flash use a Block Mapping Table to handle bad blocks. This is relevant to anything which mounts an FS on the device because you *must* implement the same BMT logic or else the data you write may not be seen, or may even be overwritten by the bootloader.
+
+More information in [BBT/BMT](/bootloader/bbt-bmt).
+
+## Available bootloader commands
 All size arguments must be unprefixed hex values, for example if the memory location is `0x80020000`, you write `80020000`, if the length is `256`, you write `100`.
 
 | Command                  | Description                                           | Notes |
