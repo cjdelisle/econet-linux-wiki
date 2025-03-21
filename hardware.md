@@ -2,7 +2,7 @@
 title: Hardware
 description: The specific EcoNet SoCs and their devices
 published: true
-date: 2025-03-20T21:45:34.028Z
+date: 2025-03-21T22:54:57.891Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:16:36.117Z
@@ -44,6 +44,8 @@ EcoNet devices have some common hardware as well as some specific hardware to th
 skinparam monochrome true
 skinparam dpi 150
 ```
+
+[Address Map](/hardware/EN7512/en7512-address-map)
 
 * Common
   * ["High Precision Timer" CPU Timer](/hardware/econet-hpt)
