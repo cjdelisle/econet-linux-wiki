@@ -2,7 +2,7 @@
 title: EN7512 Address Map
 description: 
 published: true
-date: 2025-03-22T11:50:12.178Z
+date: 2025-03-22T12:55:08.452Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T23:49:55.355Z
@@ -18,7 +18,7 @@ dateCreated: 2025-03-21T23:49:55.355Z
 | 0xBFA30000  | 0x00000000   | SRAM     | [boot2.S](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/bootrom/en7512_boot/boot2/init/boot2.S)|
 | 0xBFA60000  | 0x00000000   | SLM     | [qdma_reg.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/qdma/EN7512/qdma_reg.h#L97C23-L97C33)|
 | 0xBFA80000  | 0x00000000   | SIF_SLV     | [xhci-mtk.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/drivers/usb/host/mtk_xhci/xhci-mtk.h)|
-| 0xBFB00000  | 0x00000000   | ARB     | [boot2.S](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/bootrom/en7512_boot/boot2/init/boot2.S)|
+| 0xBFB00000  | 0x00000000   | SCU     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L985)
 | 0xBFB10000  | 0x00000000   | SMC     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L973)|
 | 0xBFB20000  | 0x00000000   | DMC     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L382Type)|
 | 0xBFB30000  | 0x00000000   | GDMA     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L423Type)|
