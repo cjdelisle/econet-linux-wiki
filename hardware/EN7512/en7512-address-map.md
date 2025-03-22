@@ -2,7 +2,7 @@
 title: EN7512 Address Map
 description: 
 published: true
-date: 2025-03-22T12:55:08.452Z
+date: 2025-03-22T14:40:52.263Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T23:49:55.355Z
@@ -29,7 +29,9 @@ dateCreated: 2025-03-21T23:49:55.355Z
 | 0xBFB58000  | 0x00000000   | GSW     | [fe_reg_en7512.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/fe/en7512/fe_reg_en7512.h#L418)
 | 0xBFB60000  | 0x00000000   | ATM SAR     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L1071)|
 | 0xBFB70000  | 0x00000000   | USB     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L997)|
-| 0xBFB80000  | 0x00000000   | HOST BRIDGE | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L1063)|
+| 0xBFB80000  | 0x00000000   | PCIe | [pci-tc3162.c](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/pci/pci-tc3162.c)|
+| 0xBFB90000  | 0xBFB9FFFF   | PCIe IO | [pci-tc3162.c](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/pci/pci-tc3162.c)|
+| 0xBFBA0000  | 0xBFBCFFFF   | PCIe MEM| [pci-tc3162.c](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/pci/pci-tc3162.c)|
 | 0xBFB90000  | 0x00000000   | XHCI |[xhci-mtk.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/drivers/usb/host/mtk_xhci/xhci-mtk.h)|
 | 0xBFBC0000  | 0x00000000   | SPI     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L436)|
 | 0xBFBD0000  | 0x00000000   | PCM     | [pcmdriver.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/voip_2.6.36/DSP/MTK/pcm/pcmdriver.h#L112)|
