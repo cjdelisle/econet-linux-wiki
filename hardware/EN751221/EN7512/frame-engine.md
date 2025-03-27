@@ -1,8 +1,8 @@
 ---
-title: EN7512 Frame Engine
+title: Frame Engine
 description: 
 published: true
-date: 2025-03-20T23:26:54.322Z
+date: 2025-03-27T15:47:08.630Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T23:25:26.867Z
