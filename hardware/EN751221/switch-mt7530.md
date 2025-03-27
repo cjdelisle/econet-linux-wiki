@@ -1,8 +1,8 @@
 ---
-title: EN7512 MT7530
+title: MT7530 Giga-Switch
 description: 
 published: true
-date: 2025-03-20T23:29:03.980Z
+date: 2025-03-27T21:37:32.349Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T19:53:00.382Z
