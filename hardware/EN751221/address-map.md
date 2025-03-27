@@ -1,14 +1,14 @@
 ---
-title: EN7512 Address Map
+title: EN751221 Address Map
 description: 
 published: true
-date: 2025-03-27T21:23:13.961Z
+date: 2025-03-27T21:26:09.537Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T23:49:55.355Z
 ---
 
-# EN7512 Address Map
+# EN751221 Address Map
 | Address     | Size | Name | Reference  | Wiki Page |
 |-------------|------|------|------------| --------- |
 | 0xBF900000  | 0x00000000   | AFE     | [boot2.S](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/bootrom/en7512_boot/boot2/init/boot2.S)| - |
