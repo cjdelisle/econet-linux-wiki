@@ -2,7 +2,7 @@
 title: Bootloader
 description: The Tclinux / EcoNet bootloader
 published: true
-date: 2025-03-21T18:17:15.719Z
+date: 2025-03-27T15:19:49.020Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T16:38:11.698Z
@@ -134,7 +134,7 @@ If you know the location of the boot flag, you can modify the boot flag directly
 ## BBT/BMT
 Devices with NAND flash use a Block Mapping Table to handle bad blocks. This is relevant to anything which mounts an FS on the device because you *must* implement the same BMT logic or else the data you write may not be seen, or may even be overwritten by the bootloader.
 
-More information in [BBT/BMT](/bootloader/bbt-bmt).
+More information in [BBT/BMT](/Bootloader/bbt-bmt).
 
 ## Available bootloader commands
 All size arguments must be unprefixed hex values, for example if the memory location is `0x80020000`, you write `80020000`, if the length is `256`, you write `100`.
