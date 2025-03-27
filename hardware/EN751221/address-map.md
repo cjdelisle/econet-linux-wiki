@@ -2,7 +2,7 @@
 title: Address Map
 description: 
 published: true
-date: 2025-03-27T21:35:05.162Z
+date: 2025-03-27T21:38:42.699Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T23:49:55.355Z
@@ -29,7 +29,7 @@ dateCreated: 2025-03-21T23:49:55.355Z
 | [0xBFB50000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1957572195#gid=1957572195)  | 0x4000   | FE     | [fe_reg_en7512.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/fe/en7512/fe_reg_en7512.h#L61) | [Frame Engine](/hardware/EN751221/frame-engine) |
 | [0xBFB54000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1957572195#gid=1957572195)  | 0x1000   | QDMA1     | [qdma_reg.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/qdma/EN7512/qdma_reg.h#L79C58-L79C68)| - |
 | [0xBFB55000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1957572195#gid=1957572195)  | 0x1000   | QDMA2     | [qdma_reg.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/qdma/EN7512/qdma_reg.h#L79C58-L79C68)| - |
-| [0xBFB58000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1957572195#gid=1957572195)  | 0x8000   | GSW     | [fe_reg_en7512.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/fe/en7512/fe_reg_en7512.h#L418) | - |
+| [0xBFB58000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1957572195#gid=1957572195)  | 0x8000   | GSW     | [fe_reg_en7512.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/fe/en7512/fe_reg_en7512.h#L418) | [MT7530 Giga-Switch](/hardware/EN751221/switch-mt7530) |
 | 0xBFB64000  | 0x2000   | GPON MAC     | [gpon_reg.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/xpon/inc/gpon/gpon_reg.h#L8)| - |
 | 0xBFB66000  | 0x2000   | EPON MAC     | [epon_reg.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/xpon/inc/epon/epon_reg.h#L189)| - |
 | [0xBFB70000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=2051134624#gid=2051134624)  | 0x10000   | CRYPTO     | [rt_mmap.h](https://github.com/cjdelisle/kernel-49/blob/master/arch/mips/include/asm/tc3162/rt_mmap.h#L21)| - |
