@@ -1,8 +1,8 @@
 ---
-title: EN751221 GDMA
+title: GDMA
 description: 
 published: true
-date: 2025-03-27T21:28:12.689Z
+date: 2025-03-27T21:31:31.180Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T19:39:53.082Z
