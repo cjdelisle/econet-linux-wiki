@@ -2,7 +2,7 @@
 title: NAND BBT/BMT (Bad Block Management)
 description: The bad block management tables used by the EcoNet bootloader
 published: true
-date: 2025-03-27T15:15:53.640Z
+date: 2025-03-27T15:17:28.102Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T18:26:45.788Z
@@ -89,8 +89,9 @@ In this example, the user area has 22 usable blocks (excluding two factory bad b
 - When a block fails to read, or shows sufficient ECC corrected errors to be worth replacing:
   1. A free block is selected from the reserve pool.
   2. Data is copied (if possible) to the new block.
-  3. The BMT is updated with the new mapping.
-  4. The worn block is marked bad.
+  3. The block is marked in it's OOB data area with a back-reference to the worn out block (allowing reconstruction of the BMT).
+  4. The BMT is updated with the new mapping.
+  5. The worn block is marked bad.
 - Remapping can occur during reads or writes if enabled, but if the copy fails, data will be silently lost, the user will suddenly begin reading the newly erased remap block.
 
 ## Drivers
