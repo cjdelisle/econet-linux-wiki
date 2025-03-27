@@ -1,14 +1,14 @@
 ---
-title: EN751221 Interrupt Controller
+title: Interrupt Controller
 description: The Interrupt Controller found on the EN751221 family
 published: true
-date: 2025-03-21T22:50:52.295Z
+date: 2025-03-27T21:42:13.732Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T01:50:51.981Z
 ---
 
-# EN751221 Interrupt Controller
+# Interrupt Controller
 The EcoNet EN751221 (34Kc) uses a relatively simple 40 line intc. Each interrupt has one mask bit. However, the 34Kc supports SMP with 2 VPEs, and with only one bit per interrupt there is no way to mask an interrupt for one CPU and not the other. To address this, they introduce what we call *shadow-interrupts*.
 
 ## Shadow Interrupts
