@@ -2,7 +2,7 @@
 title: NAND BBT/BMT (Bad Block Management)
 description: The bad block management tables used by the EcoNet bootloader
 published: true
-date: 2025-03-27T15:17:28.102Z
+date: 2025-03-27T15:19:07.107Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T18:26:45.788Z
@@ -108,6 +108,6 @@ But this driver still has bugs and limitations:
 * If a block is remapped during read and the copy operation fails, the user will read a newly erased block instead of getting what they expected *or* getting an error.
 * If the user stores data at the end of the user space and then a block wears out in the reserve space, the user data will become inaccessible after the reserve area boundary is moved.
 * If run on a device where the bootloader has a hardcoded maximum reserve area size, this driver may create mappings or store the BBT out of the range where the bootloader can find them. This might happen by surprise when a block in the reserve area wears out.
-
+* 8% of the entire disk is reserved for block mappings, even if the majority of the disk is UBI and therefore has its own mapping system.
 
 
