@@ -2,7 +2,7 @@
 title: Address Map
 description: 
 published: true
-date: 2025-03-27T21:38:42.699Z
+date: 2025-03-27T21:41:11.145Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T23:49:55.355Z
@@ -41,6 +41,6 @@ dateCreated: 2025-03-21T23:49:55.355Z
 | [0xBFBF0200](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1947557460#gid=1947557460)  | 0x7C   | GPIO     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L866)| - |
 | [0xBFBF0300](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1947557460#gid=1947557460)  | 0x30   | UART2     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L633)| - |
 | [0xBFBF0400](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1947557460#gid=1947557460)  | 0x100   | CPU TIMER     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L856)| [High Precision Timer](/hardware/econet-hpt)
-| [0xBFBF0500](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1947557460#gid=1947557460)  | 0x84   | SIM     | [sim_hw_mtk.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/simcard_separation/sim_hw_mtk.h)|
-| [0xBFBF8000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1947557460#gid=1947557460) | 0x100 | I2C | [rt_mmap.h](https://github.com/cjdelisle/kernel-49/blob/55aac5e7e66370260fe514baff3dd0337e728173/arch/mips/include/asm/tc3162/rt_mmap.h#L14) | - |
-| [0xBFBF8200](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1947557460#gid=1947557460)  | 0x100   | EFUSE     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L227Type)|
+| [0xBFBF0500](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1947557460#gid=1947557460)  | 0x84   | SIM     | [sim_hw_mtk.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/simcard_separation/sim_hw_mtk.h)| - |
+| [0xBFBF8000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1947557460#gid=1947557460) | 0x100 | I2C | [rt_mmap.h](https://github.com/cjdelisle/kernel-49/blob/55aac5e7e66370260fe514baff3dd0337e728173/arch/mips/include/asm/tc3162/rt_mmap.h#L14) | [I2C](/hardware/EN751221/i2c) |
+| [0xBFBF8200](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1947557460#gid=1947557460)  | 0x100   | EFUSE     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L227Type)| - |
