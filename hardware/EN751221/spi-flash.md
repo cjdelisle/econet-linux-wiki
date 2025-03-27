@@ -1,14 +1,14 @@
 ---
-title: EN751221 SPI Flash Controller
+title: SPI Flash Controller
 description: The EN751221 / AN7523 SPI Controller
 published: true
-date: 2025-03-20T15:02:41.229Z
+date: 2025-03-27T21:41:47.054Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T02:01:38.373Z
 ---
 
-# EN751221 SPI Flash Controller
+# SPI Flash Controller
 This SPI Controller has two modes, manual and auto. Auto mode is similar to DMA in that data is sent directly to a location in memory, but it is only for NOR flash. For NAND flash, this controller only supports manual mode, in which data is read and written one byte at a time by the CPU.
 
 The EN751627 SFC is similar to this one, but also has DMA capability.
