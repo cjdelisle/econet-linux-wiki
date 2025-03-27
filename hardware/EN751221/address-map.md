@@ -2,7 +2,7 @@
 title: EN751221 Address Map
 description: 
 published: true
-date: 2025-03-27T21:26:09.537Z
+date: 2025-03-27T21:27:13.770Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T23:49:55.355Z
@@ -13,7 +13,7 @@ dateCreated: 2025-03-21T23:49:55.355Z
 |-------------|------|------|------------| --------- |
 | 0xBF900000  | 0x00000000   | AFE     | [boot2.S](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/bootrom/en7512_boot/boot2/init/boot2.S)| - |
 | [0xBFA00000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=202532780#gid=202532780)  | 0x100   | RBUS CORE     | [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L373Type)| - |
-| [0xBFA10000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=716018069#gid=716018069)  | 0x140   | SPI FLASH     | [newspiflash.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/drivers/mtd/chips/newspiflash.h)| [en751221-spi](/hardware/EN751221/en751221-spi)
+| [0xBFA10000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=716018069#gid=716018069)  | 0x140   | SPI FLASH     | [newspiflash.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/drivers/mtd/chips/newspiflash.h)| [EN751221 SPI Flash Controller](/hardware/EN751221/en751221-spi)
 | [0xBFA20000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1122579885#gid=1122579885)  | 0x200   | CHIP SCU     | [boot2.S](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/bootrom/en7512_boot/boot2/init/boot2.S)| - |
 | [0xBFA30000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1428020403#gid=1428020403)  | 0x00000000   | SRAM     | [boot2.S](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/bootrom/en7512_boot/boot2/init/boot2.S)| - |
 | [0xBFA60000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1736905292#gid=1736905292)  | 0x00000000   | SLM (QDMA) | [qdma_reg.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/qdma/EN7512/qdma_reg.h#L97C23-L97C33)| - |
