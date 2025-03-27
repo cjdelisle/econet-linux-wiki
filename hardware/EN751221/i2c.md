@@ -1,8 +1,8 @@
 ---
-title: EN7512-I2C
+title: I2C
 description: 
 published: true
-date: 2025-03-20T19:33:39.430Z
+date: 2025-03-27T21:40:16.959Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T19:31:04.127Z
