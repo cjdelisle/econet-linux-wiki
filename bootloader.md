@@ -1,8 +1,8 @@
 ---
-title: bootloader
+title: Bootloader
 description: The Tclinux / EcoNet bootloader
 published: true
-date: 2025-03-27T15:21:38.499Z
+date: 2025-03-27T15:22:07.779Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T16:38:11.698Z
