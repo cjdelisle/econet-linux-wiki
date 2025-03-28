@@ -2,7 +2,7 @@
 title: GPIO
 description: 
 published: true
-date: 2025-03-28T22:05:42.696Z
+date: 2025-03-28T22:22:51.991Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T20:14:09.970Z
@@ -49,7 +49,7 @@ In addition to normal GPIO, this controller also has an additional 17 serial GPI
 There is currently no driver available for SGPIO, but the implementation is trivial, with a single register [CR_SGPIO_DATA](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/tc3162l2hp2h/ledctrl.c#L501) where lines 0-16 can be updated by setting bits 0-16 whenever bit 31 becomes 0.
 
 ## GPIO Interrupt (0-15)
-While not implemented in `airoha,en7523-gpio`, the first 15 GPIOs can also be configured to trigger an interrupt on IRQ line 10. Upon receiving an interrupt, the lower 16 bits of `CR_GPIO_INTS` will tell you which GPIOs are pending (upper 16 bits are unused). Configuring GPIOs to interrupt is done with two registers: `CR_GPIO_EDET` and `CR_GPIO_LDET`. Each GPIO occupies 2 bits on each register.
+While not implemented in `airoha,en7523-gpio`, the first 16 GPIOs can also be configured to trigger an interrupt on IRQ line 10. Upon receiving an interrupt, the lower 16 bits of `CR_GPIO_INTS` will tell you which GPIOs are pending (upper 16 bits are unused). Configuring GPIOs to interrupt is done with two registers: `CR_GPIO_EDET` and `CR_GPIO_LDET`. Each GPIO occupies 2 bits on each register.
 
 * `CR_GPIO_EDET`
   * 00 -> No edge triggered interrupt
@@ -62,8 +62,8 @@ While not implemented in `airoha,en7523-gpio`, the first 15 GPIOs can also be co
   * 10 -> Trigger when GPIO pin is low
   * 11 -> Unused
 
-## Simple Blink Mode (1-15)
-GPIOs 1-16 support a simple LED blinking mode with only a single defined clock and a per-GPIO clock divider.
+## Simple Blink Mode (0-15)
+GPIOs 0-15 support a simple LED blinking mode with only a single defined clock and a per-GPIO clock divider.
 
 First set `0xBFBF0218` to the clock speed you want to blink at, then each GPIO can be set to blink by setting its 2 bits in `0xBFBF021C` to:
 
@@ -73,7 +73,7 @@ First set `0xBFBF0218` to the clock speed you want to blink at, then each GPIO c
 3. 1/4 speed
 
 ## Blinkenlights Mode (excl: 32-36, 52-63)
-GPIOs can be configured to blink in hardware. When blink mode is enabled, the GPIO line will blink whenever it is switched on. Blink mode is set for the lower 16 GPIOs via the low 16 bits of `CR_GPIO_FLAMOD`. For GPIOs 16-31 and 37-51 it can be enabled via the 32 bits of `CR_GPIO_FLAMOD_EXT` but cannot be configured. For serial GPIOs, bit 1 of `CR_SGPIO_MODE` enables blink for all SGPIOs
+GPIOs can be configured to blink in hardware. When blink mode is enabled, the GPIO line will blink whenever it is switched on. Blink mode is enabled for the lower 16 GPIOs via the low 16 bits of `CR_GPIO_FLAMOD`. For GPIOs 16-31 and 37-51 it can be enabled via the 32 bits of `CR_GPIO_FLAMOD_EXT`. For serial GPIOs, bit 1 of `CR_SGPIO_MODE` enables blink for all SGPIOs.
 
 ### Configurable Blink Patterns (0-15, s0-s16)
 You can configure up to 8 unique blink-patterns via registers `CR_GPIO_FLAP0`, `CR_GPIO_FLAP1`, `CR_GPIO_FLAP2`, `CR_GPIO_FLAP3`. each blink pattern has 2 values: time-high and time-low. Each time value is 8 bits wide and supports values of 0-127. Each blink pattern register specifies 2 blink patterns as follows:
@@ -91,6 +91,8 @@ Once you have created your blink patterns, you assign them to various LEDs using
 | Bits: | 3 | 2:0 |
 | - | - |
 | Desc: | Enable (must be set) | Select pattern 0-7 |
+
+16-31 and 37-51 do not have blink pattern capability.
 
 ## Register Table
 
@@ -151,7 +153,7 @@ The wiring of any given GPIO is the decision of the board integrator, however th
 | 42   | [LED_PIN_LAN1](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/bootrom/bootram/init/main.c#L1978)               ||
 | 43   | [LED_PIN_LAN2](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/bootrom/bootram/init/main.c#L1978)               ||
 
-## Wifi GPIO (64-80)
+## Wifi GPIO (64-81)
 Unrelated to the EN751221 GPIO system, but there is another GPIO system which uses pins on the WLAN chip, this provides up to 17 additional GPIO lines and requests are forwarded over. This GPIO system is implemented in [EcoNet / MT7603 GPIO](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/wifi/MT7603/os/linux/bb_soc.c#L380) and in [EcoNet / MT7601 GPIO](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/wifi/MT7601E_LinuxAP_20130305_DPA/os/linux/bb_soc.c#L290). Wifi GPIO pins can be read and written, but do not trigger an interrupt directly. The vendor implementation does not use interrupts at all, instead it polls once per 2 seconds to check if a button is being pressed.
 
 ### Typical Wifi GPIOs
