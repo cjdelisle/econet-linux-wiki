@@ -2,7 +2,7 @@
 title: GPIO
 description: 
 published: true
-date: 2025-03-28T22:04:42.845Z
+date: 2025-03-28T22:05:42.696Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T20:14:09.970Z
@@ -95,7 +95,7 @@ Once you have created your blink patterns, you assign them to various LEDs using
 ## Register Table
 
 | Address | Name | GPIOs |  Desc |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | 0xBFBF0200 | CR_GPIO_CTRL | 0-15 | Input/Output, 2 bits/pin, 01=output |
 | 0xBFBF0204 | CR_GPIO_DATA | 0-31 | Value (R/W) |
 | 0xBFBF0208 | CR_GPIO_INTS | 0-15 | 16 bits, 1 = interrupt pending |
