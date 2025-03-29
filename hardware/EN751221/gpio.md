@@ -2,7 +2,7 @@
 title: GPIO
 description: 
 published: true
-date: 2025-03-29T12:20:15.995Z
+date: 2025-03-29T14:59:19.751Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T20:14:09.970Z
@@ -78,9 +78,9 @@ GPIOs can be configured to blink in hardware. When blink mode is enabled, the GP
 ### Configurable Blink Patterns (0-15, s0-s16)
 You can configure up to 8 unique blink-patterns via registers `CR_GPIO_FLAP0`, `CR_GPIO_FLAP1`, `CR_GPIO_FLAP2`, `CR_GPIO_FLAP3`. each blink pattern has 2 values: time-high and time-low. Each time value is 8 bits wide and supports values of 0-127. Each blink pattern register specifies 2 blink patterns as follows:
 
-| Bits: | 31 | 30:24 | 23 | 22:16 | 15 | 14:8 | 7 | 6:0 |
-| :- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Desc: | R | T-Lo1 | R | T-Hi1 | R | T-Lo0 | R | T-Hi0 |
+| Bits: |  31  | 30:24 |  23  | 22:16 |  15  | 14:8  |   7  |  6:0  |
+| :---- | :--: | :---: | :--: | :---: | :--: | :---: | :--: | :---: |
+| Desc: |   R  | T-Lo1 |   R  | T-Hi1 |   R  | T-Lo0 |   R  | T-Hi0 |
 
 * R: Reserved
 * T-Lo - Time low
