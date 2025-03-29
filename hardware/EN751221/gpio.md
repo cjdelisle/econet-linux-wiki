@@ -2,7 +2,7 @@
 title: GPIO
 description: 
 published: true
-date: 2025-03-28T22:22:51.991Z
+date: 2025-03-29T12:20:15.995Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T20:14:09.970Z
@@ -10,7 +10,7 @@ dateCreated: 2025-03-20T20:14:09.970Z
 
 ## GPIO
 
-The EN751221 supports up to 64 GPIO lines. This means almost every physical pin on the chip can be assigned as a GPIO. Of course this won't happen in practice because they're needed for other types of IO.
+The EN751221 supports up to 64 GPIO lines. In practice there won't be this many in use because they will be needed for other types of IO and will be assigned in the [PINMUX](/hardware/EN751221/pinmux) to other tasks.
 
 ### Drivers
 
