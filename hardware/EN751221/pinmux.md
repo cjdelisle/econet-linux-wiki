@@ -2,7 +2,7 @@
 title: PINMUX
 description: The pin controller for the EN751221
 published: true
-date: 2025-03-29T12:12:45.156Z
+date: 2025-03-29T12:18:30.794Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-29T00:56:15.052Z
@@ -21,7 +21,7 @@ The GPIO pins and their possible functions are as follows:
 
 ## Functions
 ### Serial GPIO
-For boards which use a 74HC595 or 74HC164 shift register chip to expose an additional 17 GPIO outputs using only 2 (or 3) pins on the main chip.
+For boards which use a 74HC595 or 74HC164 shift register chip to expose an additional 17 [GPIO](/hardware/EN751221/gpio) outputs using only 2 (or 3) pins on the main chip.
 * Uses: GPIO8, GPIO11
 * Enable by setting bit 17
 * Conflicts with: Port 2 LED
@@ -43,12 +43,12 @@ If PCIe exists on the board, GPIO30 is wired to the slot 0 reset line.
 * Uses: GPIO30
 * Enable by setting bit 20
 ### SPI Quad Mode
-If SPI Quad Mode is available, lines 3 and 10 are wired to the SPI devices.
+If the [SPI Flash Controller](/hardware/EN751221/spi-flash) is wired to the flash chip for quad mode, lines 3 and 10 are used in addition to the normal SPI lines.
 * Uses: GPIO3, GPIO10
 * Enable by setting bit 19
 * Conflicts with: UART2, SPI CS3, PCM INT, Port4 LED, Port0 LED
 ### UART2
-A second UART port is available, boards implementing this will use lines 3 and 10.
+A second [UART port](/hardware/EN751221/uart) is available, boards implementing this will use lines 3 and 10.
 * Uses: GPIO3, GPIO10
 * Enable by setting bit 18
 * Conflicts with: SPI Quad Mode, SPI CS3, PCM INT, Port4 LED, Port0 LED
@@ -122,7 +122,7 @@ Activity indicator for LAN port 0
 * Conflicts with: UART2, SPI Quad Mode
 * See: Port4 LED for additional details
 ### Route I2C to xPON
-This doesn't occupy any known GPIO pins, it seems to change the output of the I2C subsystem, making it communicate with the xPON subsystem rather than the standard I2C output pins.
+This doesn't occupy any known GPIO pins, it seems to change the output of the [I2C subsystem](/hardware/EN751221/i2c), making it communicate with the xPON subsystem rather than the standard I2C output pins.
 * Enabled by setting bit 0
 
 
