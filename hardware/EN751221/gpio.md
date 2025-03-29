@@ -2,7 +2,7 @@
 title: GPIO
 description: 
 published: true
-date: 2025-03-29T14:59:19.751Z
+date: 2025-03-29T15:00:06.411Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T20:14:09.970Z
@@ -89,7 +89,7 @@ You can configure up to 8 unique blink-patterns via registers `CR_GPIO_FLAP0`, `
 Once you have created your blink patterns, you assign them to various LEDs using `CR_GPIO_FMAP0`, `CR_GPIO_FMAP1`, `CR_SGPIO_FMAP0`, `CR_SGPIO_FMAP1`, and `CR_SGPIO_FMAP2`. Each register has the same 4 bit structure repeated:
 
 | Bits: | 3 | 2:0 |
-| - | - |
+| -- | -- | -- |
 | Desc: | Enable (must be set) | Select pattern 0-7 |
 
 16-31 and 37-51 do not have blink pattern capability.
