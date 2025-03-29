@@ -1,8 +1,8 @@
 ---
-title: EcoNet EN751221
+title: EN751221
 description: The EN751221 family, based on 34Kc processor
 published: true
-date: 2025-03-28T22:52:31.820Z
+date: 2025-03-29T00:58:38.474Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:40:26.266Z
@@ -19,7 +19,8 @@ The EN751221 family consists of the following devices:
 From the perspective of the software, they are almost almost identical, with the major differences between the DSL and XPON chips being in the GPIO and PINMUX assignments.
 
 ## Peripherals
-* PINMUX
+* System Controller
+  * [PINMUX](/hardware/EN751221/pinmux)
 * Crypto Engine
 * Timer
 * [High Precision Timer](/hardware/econet-hpt)
