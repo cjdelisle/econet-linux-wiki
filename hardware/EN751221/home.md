@@ -2,7 +2,7 @@
 title: EN751221
 description: The EN751221 family, based on 34Kc processor
 published: true
-date: 2025-03-29T00:58:38.474Z
+date: 2025-03-29T12:14:32.395Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:40:26.266Z
@@ -38,7 +38,6 @@ From the perspective of the software, they are almost almost identical, with the
 * PCIe
 * USB
 * [I2C](/hardware/EN751221/i2c)
-* 
 
 ## Address Map
 | Address     | Size | Name | Reference  | Wiki Page |
