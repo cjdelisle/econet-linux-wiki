@@ -2,7 +2,7 @@
 title: GPIO
 description: 
 published: true
-date: 2025-03-29T15:00:06.411Z
+date: 2025-03-29T15:00:17.314Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T20:14:09.970Z
@@ -92,7 +92,7 @@ Once you have created your blink patterns, you assign them to various LEDs using
 | -- | -- | -- |
 | Desc: | Enable (must be set) | Select pattern 0-7 |
 
-16-31 and 37-51 do not have blink pattern capability.
+16-31 and 37-51 do not have custom blink pattern capability.
 
 ## Register Table
 
