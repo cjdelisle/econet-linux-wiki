@@ -2,7 +2,7 @@
 title: EN751221
 description: The EN751221 family, based on 34Kc processor
 published: true
-date: 2025-03-29T12:14:32.395Z
+date: 2025-03-30T20:37:03.507Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:40:26.266Z
@@ -21,7 +21,7 @@ From the perspective of the software, they are almost almost identical, with the
 ## Peripherals
 * System Controller
   * [PINMUX](/hardware/EN751221/pinmux)
-* Crypto Engine
+* [Crypto Engine](/hardware/crypto-eip93)
 * Timer
 * [High Precision Timer](/hardware/econet-hpt)
 * [Interrupt Controller](/hardware/EN751221/intc)
