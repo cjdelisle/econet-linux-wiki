@@ -2,7 +2,7 @@
 title: EN751221
 description: The EN751221 family, based on 34Kc processor
 published: true
-date: 2025-03-30T20:37:03.507Z
+date: 2025-04-02T15:08:21.995Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:40:26.266Z
@@ -63,7 +63,7 @@ From the perspective of the software, they are almost almost identical, with the
 | [0xBFB58000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=1957572195#gid=1957572195)  | 0x8000   | GSW     | [fe_reg_en7512.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/fe/en7512/fe_reg_en7512.h#L418) | [MT7530 Giga-Switch](/hardware/EN751221/switch-mt7530) |
 | 0xBFB64000  | 0x2000   | GPON MAC     | [gpon_reg.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/xpon/inc/gpon/gpon_reg.h#L8)| - |
 | 0xBFB66000  | 0x2000   | EPON MAC     | [epon_reg.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/xpon/inc/epon/epon_reg.h#L189)| - |
-| [0xBFB70000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=2051134624#gid=2051134624)  | 0x10000   | CRYPTO     | [rt_mmap.h](https://github.com/cjdelisle/kernel-49/blob/master/arch/mips/include/asm/tc3162/rt_mmap.h#L21)| - |
+| [0xBFB70000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=2051134624#gid=2051134624)  | 0x10000   | CRYPTO     | [rt_mmap.h](https://github.com/cjdelisle/kernel-49/blob/master/arch/mips/include/asm/tc3162/rt_mmap.h#L21)| [Crypto Engine](/hardware/crypto-eip93) |
 | [0xBFB80000](https://docs.google.com/spreadsheets/d/1kzdVxYqu4cTpe6ascNshn5PoCmxrbTkr3bAuWkqKkeg/edit?gid=332323451#gid=332323451)  | 0x4000   | PCIe | [pci-7512api.c](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/pci/pci-7512api.c)| - |
 | 0xBFBA0000  | 0x20000   | XHCI |[xhci-mtk.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/drivers/usb/host/mtk_xhci/xhci-mtk.h)| - |
 | 0xBFBD0000  | 0x10000   | PCM     | [pcmdriver.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/voip_2.6.36/DSP/MTK/pcm/pcmdriver.h#L112)| - |
