@@ -2,7 +2,7 @@
 title: EN751221
 description: The EN751221 family, based on 34Kc processor
 published: true
-date: 2025-04-02T15:08:21.995Z
+date: 2025-04-03T19:06:57.360Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T00:40:26.266Z
@@ -89,30 +89,30 @@ From the perspective of the software, they are almost almost identical, with the
 | | 6  | TIMER2_INT | Timer 2 interrupt |
 |:white_check_mark:| 7  | SI_SWINT_INT0 | MIPS34K software interrupt 0 |
 |:white_check_mark:| 8  | SI_SWINT_INT1 | MIPS34K software interrupt 1 |
-| | 9  | TIMER5_INT | Timer 3 interrupt |
+| :white_check_mark: | 9  | TIMER5_INT | Timer 3 (watchdog) interrupt |
 | | 10 | GPIO_INT | [GPIO](/hardware/EN751221/gpio) controller interrupt |
-| | 11 | PCM1_INT | PCM1 interrupt |
+| :white_check_mark: | 11 | PCM1_INT | PCM1 interrupt |
 | | 12 | SI_PC1_INT | Shadow of interrupt 13 |
 | | 13 | SI_PC_INT | MIPS34K performance counter interrupt |
 | | 14 | APB_DMA0_INT | GDMA controller interrupt |
 | | 15 | MAC1_INT, ESW_INT | Giga switch interrupt |
 | | 16 | HSUART_INT | UART2 interrupt |
-| | 17 | IRQ_RT3XXX_USB | USB host controller interrupt     |
-| | 18 | DYINGGASP_INT | Dying Gasp interrupt              |
+| :white_check_mark: | 17 | IRQ_RT3XXX_USB | USB host controller interrupt     |
+| :white_check_mark: | 18 | DYINGGASP_INT | Dying Gasp interrupt              |
 | | 19 | DMT_INT | xDSL DMT interrupt                |
 | | 20 | USB20_INT, UNUSED0_INT | USB 2.0               |
-| | 21 | MAC_INT, FE_MAC_INT | Frame engine interrupt            |
-| | 22 | SAR_INT | SAR (ATM)                    |
-| | 23 | PCIE_0_INT, USB11_INT | PCIe Port0 interrupt             |
-| | 24 | PCIE_A_INT | PCIe Port1 interrupt              |
+| :white_check_mark: | 21 | MAC_INT, FE_MAC_INT, CONFIG_QDMA_IRQ | QDMA LAN |
+| :white_check_mark: | 22 | CONFIG_QDMA_IRQ | QDMA WAN |
+| :white_check_mark: | 23 | PCIE_0_INT | PCIe Port0 interrupt |
+| :white_check_mark: | 24 | PCIE_A_INT | PCIe Port1 interrupt |
 | | 25 | PCIE_SERR_INT | PCIe Error interrupt |
 | | 26 | XSLV0_INT, PTM_B1_INT | Unknown / Unused |
 | | 27 | XSLV1_INT, SPI_MC_INT | Unknown / Unused |
 | | 28 | XSLV2_INT, CRYPTO_INT, USB_INT | Crypto interrupt |
-| :white_check_mark: | 29 | SI_TIMER1_INT | Shadow of interrupt 30          |
+| :white_check_mark: | 29 | SI_TIMER1_INT | Shadow of interrupt 30 |
 | :white_check_mark: | 30 | SI_TIMER_INT | [High Precision Timer](/hardware/econet-hpt) |
-| | 31 | SWR_INT | Pbus timeout interrupt            |
-| | 32 | BUS_TOUT_INT | PCM2 interrupt                    |
+| | 31 | SWR_INT | Unknown / Unused |
+| :white_check_mark: | 32 | BUS_TOUT_INT | Pbus timeout interrupt |
 | | 33 | RESERVE_A_INT, PCM2_INT | Reserved                          |
 | | 34 | RESERVE_B_INT | SLM interrupt                     |
 | | 35 | RESERVE_C_INT | SPI controller interrupt          |
