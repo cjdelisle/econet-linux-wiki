@@ -2,7 +2,7 @@
 title: Main
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-03-30T09:21:12.171Z
+date: 2025-04-04T14:53:53.253Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -25,7 +25,7 @@ EcoNet (HK) Limited was a subsidiary of MediaTek who produced broadband devices.
 
 ## What chips are there?
 See: [Hardware](/hardware)
-* [EN751221](/hardware/EN751221/home) chips
+* [EN751221](/hardware/EN751221) chips
   * [EN7512](/hardware/EN751221/EN7512)
   * EN7513
   * EN7521
