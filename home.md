@@ -2,7 +2,7 @@
 title: Main
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-04-04T14:53:53.253Z
+date: 2025-04-04T14:54:26.359Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -15,7 +15,7 @@ A project to port mainline Linux to EcoNet MIPS SoCs.
 
 ## What are EcoNet SoCs?
 EcoNet chips are used in DSL and XPON CPE. They are big endian MIPS, and come from the TrendChip TC3162 heritage. They mostly fall into two categories:
-* [EN751221](/hardware/EN751221/home) based on 34Kc with a custom interrupt controller, and
+* [EN751221](/hardware/EN751221) based on 34Kc with a custom interrupt controller, and
 * EN751627 based on MIPS 1004Kc with MIPS_GIC
 
 They have SPI NAND or NOR flash, PCIe, USB, Ethernet, SLIC (VoIP), and XDSL or XPON depending on the chip.
