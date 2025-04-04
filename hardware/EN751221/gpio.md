@@ -2,7 +2,7 @@
 title: GPIO
 description: 
 published: true
-date: 2025-03-29T15:00:17.314Z
+date: 2025-04-04T09:56:06.113Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T20:14:09.970Z
@@ -47,6 +47,8 @@ A more full-featured driver providing pinctrl, gpio and gpio-interrupt support i
 In addition to normal GPIO, this controller also has an additional 17 serial GPIO lines which are output-only and which are multiplexed over a couple (unknown how many or which) physical pins to a [74HC595](https://www.ti.com/lit/ds/symlink/sn74hc595.pdf) or [74HC164](https://www.ti.com/lit/ds/symlink/sn74hc164.pdf) shift register chip which outputs the 17 lines.
 
 There is currently no driver available for SGPIO, but the implementation is trivial, with a single register [CR_SGPIO_DATA](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/tc3162l2hp2h/ledctrl.c#L501) where lines 0-16 can be updated by setting bits 0-16 whenever bit 31 becomes 0.
+
+The GPIO block contains PWM functionallity which can route PWM-generators to use the SIPO pins. As the linux kernel contains shift register drivers for generic gpio a specific hardware driver is of limited use. 
 
 ## GPIO Interrupt (0-15)
 While not implemented in `airoha,en7523-gpio`, the first 16 GPIOs can also be configured to trigger an interrupt on IRQ line 10. Upon receiving an interrupt, the lower 16 bits of `CR_GPIO_INTS` will tell you which GPIOs are pending (upper 16 bits are unused). Configuring GPIOs to interrupt is done with two registers: `CR_GPIO_EDET` and `CR_GPIO_LDET`. Each GPIO occupies 2 bits on each register.
