@@ -2,7 +2,7 @@
 title: GPIO
 description: 
 published: true
-date: 2025-04-04T12:19:13.634Z
+date: 2025-04-04T12:21:41.884Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T20:14:09.970Z
@@ -104,8 +104,8 @@ Source reference [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/m
 | 0xBFBF0200 | CR_GPIO_CTRL | 0-15 | Input/Output, 2 bits/pin, 01=output |
 | 0xBFBF0204 | CR_GPIO_DATA | 0-31 | Value (R/W) |
 | 0xBFBF0208 | CR_GPIO_INTS | 0-15 | 16 bits, 1 = interrupt pending |
-| 0xBFBF020C | CR_GPIO_EDET | 0-15 | Edge triggering, 2 bits/pin |
-| 0xBFBF0210 | CR_GPIO_LDET | 0-15 | Level triggering, 2 bits/pin |
+| 0xBFBF020C | CR_GPIO_EDET | 0-15 | Interrupt Edge triggering, 2 bits/pin |
+| 0xBFBF0210 | CR_GPIO_LDET | 0-15 | Interrupt Level triggering, 2 bits/pin |
 | 0xBFBF0214 | CR_GPIO_ODRAIN | 0-31 | 1 = Output enabled |
 | 0xBFBF0218 | ??? | - | Simple blinker clock |
 | 0xBFBF021C | ??? | 0-15 | 2 bits/pin, simple blink mode |
