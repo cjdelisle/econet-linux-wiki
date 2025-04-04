@@ -1,8 +1,8 @@
 ---
-title: Main
+title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-04-04T14:54:26.359Z
+date: 2025-04-04T14:58:12.642Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
