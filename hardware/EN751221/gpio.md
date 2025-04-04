@@ -2,7 +2,7 @@
 title: GPIO
 description: 
 published: true
-date: 2025-04-04T09:56:06.113Z
+date: 2025-04-04T12:19:13.634Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T20:14:09.970Z
@@ -97,6 +97,7 @@ Once you have created your blink patterns, you assign them to various LEDs using
 16-31 and 37-51 do not have custom blink pattern capability.
 
 ## Register Table
+Source reference [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L864)
 
 | Address | Name | GPIOs |  Desc |
 | --- | --- | --- | --- |
