@@ -2,7 +2,7 @@
 title: GPIO
 description: 
 published: true
-date: 2025-04-07T09:22:53.632Z
+date: 2025-04-07T09:23:17.281Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T20:14:09.970Z
@@ -94,7 +94,7 @@ Once you have created your blink patterns, you assign them to various LEDs using
 | -- | -- | -- |
 | Desc: | Enable (must be set) | Select pattern 0-7 |
 
-### Configurable Blink Patterns (16-31, 37-51)
+### Configurable Blink Patterns (16-31, 36-51)
 16-31 and 37-51 have blink capability but no specific registers for selecting blink pattern. Therefore, the pattern is taken from that programmed for GPIOs 8-15 in the following way:
 
 | Parent GPIO | Same | Same | Same | Same |
