@@ -2,7 +2,7 @@
 title: GPIO
 description: 
 published: true
-date: 2025-04-04T12:21:41.884Z
+date: 2025-04-07T09:22:53.632Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T20:14:09.970Z
@@ -94,7 +94,19 @@ Once you have created your blink patterns, you assign them to various LEDs using
 | -- | -- | -- |
 | Desc: | Enable (must be set) | Select pattern 0-7 |
 
-16-31 and 37-51 do not have custom blink pattern capability.
+### Configurable Blink Patterns (16-31, 37-51)
+16-31 and 37-51 have blink capability but no specific registers for selecting blink pattern. Therefore, the pattern is taken from that programmed for GPIOs 8-15 in the following way:
+
+| Parent GPIO | Same | Same | Same | Same |
+| --- | --- | --- | --- | --- |
+| 8 | 16 | 24 | 36 | 44 |
+| 9 | 17 | 25 | 37 | 45 |
+| 10 | 18 | 26 | 38 | 46 |
+| 11 | 19 | 27 | 39 | 47 |
+| 12 | 20 | 28 | 40 | 48 |
+| 13 | 21 | 29 | 41 | 49 |
+| 14 | 22 | 30 | 42 | 50 |
+| 15 | 23 | 31 | 43 | 51 |
 
 ## Register Table
 Source reference [tc3162.h](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/linux-2.6.36/arch/mips/include/asm/tc3162/tc3162.h#L864)
