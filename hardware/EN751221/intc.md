@@ -2,7 +2,7 @@
 title: Interrupt Controller
 description: The Interrupt Controller found on the EN751221 family
 published: true
-date: 2025-03-28T22:41:43.829Z
+date: 2025-05-07T14:18:15.757Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T01:50:51.981Z
@@ -18,7 +18,7 @@ A shadow interrupt is a second IRQ number that is allocated for the purpose of c
 This interrupt controller is designed to be used in VI/EI mode where the 7 normal CPU interrupts are re-routed to the interrupt controller, which then prioritizes them and sends them back to the CPU to be dispatched through a vector table. It *can* be run in legacy mode as long as `CPU_MIPSR2_IRQ_EI` and `CPU_MIPSR2_IRQ_VI` are NOT defined. In this mode, the interrupt controller is registered to the CPU under interrupt number 2, and it works as long as all other CPU interrupts are disabled (except for 0 and 1 which are used to control the software interrupts).
 
 ## Driver
-A driver exists but is not yet merged to the Linux kernel: https://github.com/cjdelisle/openwrt/blob/new-platform-en75/target/linux/en75/files/drivers/irqchip/irq-en751221.c
+A driver has been merged to the Linux tip tree https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git/commit/?id=1902a59cf5f9d8b99ecf0cb8f122cb00ef7a3f13 and will be coming in a future release.
 
 ## Register Layout
 These are the actual registers on the interrupt controller itself. The controller is mapped to memory location `0xbfb40000` and is 104 bytes wide. "Value" is the value observed from dumping memory in the bootloader.
