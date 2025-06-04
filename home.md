@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-04-04T14:58:12.642Z
+date: 2025-06-04T13:24:47.722Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -12,6 +12,14 @@ dateCreated: 2025-03-18T22:17:18.480Z
 A project to port mainline Linux to EcoNet MIPS SoCs.
 
 ![econet_linux_logo.png](/econet_linux_logo.png)
+
+## EcoNet Linux Support Status
+* :white_check_mark: EN751221 initial boots-to-a-console [patchset](https://patchwork.kernel.org/project/linux-mips/list/?series=960479&state=*) accepted in Linux kernel
+* :hourglass: EN751221 OpenWRT support pull request submitted ([PR](https://github.com/openwrt/openwrt/pull/19021) and [mailing list thread](https://lists.openwrt.org/pipermail/openwrt-devel/2025-June/044052.html))
+* :soon: Out-of-tree USB driver port from [Kernel49 EcoNet USB](https://github.com/keenetic/kernel-49/blob/master/arch/mips/tc3262/dev-xhci.c)
+* :soon: Submit upstream EcoNet USB support in MediaTek XHCI driver
+* :soon: Out-of-tree PCIe driver port from [Kernel49 EcoNet PCIe](https://github.com/keenetic/kernel-49/blob/master/arch/mips/tc3262/pci_en75xx.c)
+* :soon: Start work on ethernet driver
 
 ## What are EcoNet SoCs?
 EcoNet chips are used in DSL and XPON CPE. They are big endian MIPS, and come from the TrendChip TC3162 heritage. They mostly fall into two categories:
