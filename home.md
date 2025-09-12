@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-09-12T07:09:19.936Z
+date: 2025-09-12T07:14:16.763Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -46,11 +46,11 @@ See: [Hardware](/hardware)
   * EN7580 (partially)
 
 ## I have an EcoNet device, what can I do with it?
-Right now, there is an out-of-tree Openwrt build that can be run on EN751221 devices. It has rudimentary boot-to-a-console capability, but no drivers.
+Right now, there is basic support in OpenWRT build that can be run on EN751221 devices. It has rudimentary boot-to-a-console capability, but no drivers.
 
 You can:
 
-* Get the source from https://github.com/cjdelisle/openwrt/tree/new-platform-en75
+* Get the source from https://github.com/openwrt/openwrt/
 * Get binaries from https://github.com/cjdelisle/OpenWRT-EN751221-Builds/releases/latest
 
 **ETHERNET IS NOT SUPPORTED YET, YOU MUST HAVE UART PINS CONNECTED**
