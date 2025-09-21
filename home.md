@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-09-19T09:36:19.780Z
+date: 2025-09-21T10:23:17.587Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -18,7 +18,8 @@ A project to port mainline Linux to EcoNet MIPS SoCs.
 * :white_check_mark: EN751221 OpenWRT support [pull request](https://github.com/openwrt/openwrt/pull/19021) accepted
 * :white_check_mark: USB driver port in OpenWRT: [pull request](https://github.com/openwrt/openwrt/pull/20050) accepted 
 * :hourglass: OpenWRT extroot persistent SD-Card storage: [draft (RFC) pull request](https://github.com/openwrt/openwrt/pull/20092) submitted
-* :soon: Out-of-tree PCIe driver port from [Kernel49 EcoNet PCIe](https://github.com/keenetic/kernel-49/blob/master/arch/mips/tc3262/pci_en75xx.c)
+* :white_check_mark: Experimental PCIe driver port from Kernel49 [branch](https://github.com/cjdelisle/openwrt/commit/671de6383e354d19aeda580a8cc0c2e028936a0a)
+* :soon: OpenWRT submit MT7621-based PCIe driver
 * :soon: Submit upstream EcoNet USB support
 * :soon: Submit upstream EcoNet PCI support
 * :soon: Start work on ethernet driver
