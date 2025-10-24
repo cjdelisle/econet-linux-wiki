@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-09-21T10:23:17.587Z
+date: 2025-10-24T10:36:58.510Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -13,16 +13,33 @@ A project to port mainline Linux to EcoNet MIPS SoCs.
 
 ![econet_linux_logo.png](/econet_linux_logo.png)
 
+<center>
+
+This project is supported by [NGI Zero Core](https://cordis.europa.eu/project/id/101135429), a Horizon Europe funded research project administered by [NLnet](https://nlnet.nl/project/Econet-Linux-mainline/).
+
+
+| ![nlnet.svg](https://nlnet.nl/image/logo_nlnet.svg) | <img src="https://nlnet.nl/image/logos/NGI0Core_tag.svg" width=220/> |
+|---------:|:--------:|
+
+**Check the [Project Plan](/plan) to see what's coming soon :rocket:**
+</center>
+
+
+
 ## EcoNet Linux Support Status
-* :white_check_mark: EN751221 initial boots-to-a-console [patchset](https://patchwork.kernel.org/project/linux-mips/list/?series=960479&state=*) accepted in Linux kernel
-* :white_check_mark: EN751221 OpenWRT support [pull request](https://github.com/openwrt/openwrt/pull/19021) accepted
-* :white_check_mark: USB driver port in OpenWRT: [pull request](https://github.com/openwrt/openwrt/pull/20050) accepted 
-* :hourglass: OpenWRT extroot persistent SD-Card storage: [draft (RFC) pull request](https://github.com/openwrt/openwrt/pull/20092) submitted
-* :white_check_mark: Experimental PCIe driver port from Kernel49 [branch](https://github.com/cjdelisle/openwrt/commit/671de6383e354d19aeda580a8cc0c2e028936a0a)
-* :soon: OpenWRT submit MT7621-based PCIe driver
-* :soon: Submit upstream EcoNet USB support
-* :soon: Submit upstream EcoNet PCI support
-* :soon: Start work on ethernet driver
+See: [Hardware](/hardware)
+* **[EN751221](/hardware/EN751221)** (EN7512, EN7513, EN7521, EN7526)
+  * :white_check_mark: Ability to boot to a console
+  * :white_check_mark: USB 2.0 support in OpenWRT
+  * :hourglass: PCIe (Wifi) support in OpenWRT
+  * :soon: Ethernet Support
+  * :question: xPON (Fiber) Support (EN7521 & EN7526)
+  * :question: xDSL Support (EN7512 & EN7513)
+* **EN751627** :x: No support yet
+  * EN7516 DSL
+  * EN7527 Fiber
+* **EN7528** Fiber :x: No support yet
+* **EN7580** Fiber (10Gb GPON) :x: No support yet
 
 ## What are EcoNet SoCs?
 EcoNet chips are used in DSL and XPON CPE. They are big endian MIPS, and come from the TrendChip TC3162 heritage. They mostly fall into two categories:
@@ -33,20 +50,6 @@ They have SPI NAND or NOR flash, PCIe, USB, Ethernet, SLIC (VoIP), and XDSL or X
 
 ## What is EcoNet?
 EcoNet (HK) Limited was a subsidiary of MediaTek who produced broadband devices. In 2021 they were bought by Airoha, another MediaTek subsidiary who makes ARM based broadband chips. EcoNet and Airoha devices have a fair bit in common, but EcoNet devices are MIPS, so the core devices are all quite unique.
-
-## What chips are there?
-See: [Hardware](/hardware)
-* [EN751221](/hardware/EN751221) chips
-  * [EN7512](/hardware/EN751221/EN7512)
-  * EN7513
-  * EN7521
-  * EN7526
-  * EN7520 (partially compatible)
-* EN751627
-  * EN7516
-  * EN7527
-  * EN7528 (partially)
-  * EN7580 (partially)
 
 ## I have an EcoNet device, what can I do with it?
 Right now, there is basic support in OpenWRT build that can be run on EN751221 devices. It has rudimentary boot-to-a-console capability, but no drivers.
