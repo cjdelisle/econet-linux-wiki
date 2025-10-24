@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-10-24T10:52:59.829Z
+date: 2025-10-24T12:28:36.762Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -17,7 +17,7 @@ A project to port mainline Linux to EcoNet MIPS SoCs.
 
 This project is supported by **[NGI Zero Core](https://nlnet.nl/core/)**, a Horizon Europe funding vehicle administered by **[NLnet](https://nlnet.nl/project/Econet-Linux-mainline/)**.
 
-| [![nlnet.svg](https://nlnet.nl/image/logo_nlnet.svg)](https://nlnet.nl/project/Econet-Linux-mainline/) | [<img src="https://nlnet.nl/image/logos/NGI0Core_tag.svg" width=220/>](https://nlnet.nl/project/Econet-Linux-mainline/) |
+| [![nlnet.svg](https://nlnet.nl/image/logo_nlnet.svg)](https://nlnet.nl/project/Econet-Linux-mainline/) | [<img src="https://nlnet.nl/image/logos/NGI0Core_tag.svg" width=220/>](https://nlnet.nl/core/) |
 |---------:|:--------:|
 
 **Check the [Project Plan](/plan) to see what's coming soon :rocket:**
