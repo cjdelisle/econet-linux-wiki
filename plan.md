@@ -2,7 +2,7 @@
 title: Project Plan
 description: Plan for the EcoNet Linux project
 published: true
-date: 2025-10-24T12:28:01.235Z
+date: 2025-10-24T12:41:37.248Z
 tags: 
 editor: markdown
 dateCreated: 2025-10-24T12:03:51.502Z
@@ -34,7 +34,8 @@ Before starting the project, there was a [demonstration with legacy code](https:
 - :soon: PCIe PHY developed and submitted to the Linux kernel
 - :soon: Clock developed and submitted to the Linux kernel
 - :soon: PCIe finalized and submitted to the Linux kernel
-- :soon: Wifi drivers added to OpenWRT and builds
+- :hourglass: Wifi drivers added to OpenWRT and builds
+  * Wifi support based on dirty vendor PCI driver to be published soon
 - :soon: Patchset submitted to OpenWRT
 - :soon: Reviews addressed and code accepted in Linux kernel
 
@@ -54,7 +55,8 @@ Currently there is no Ethernet support whatsoever.
 
 **Objective**: Fully functioning Ethernet on EN751221 with support for controlling the MT7530 switch that is embedded on-chip.
 
-- :soon: Minimal demonstrator based on ported legacy code (no switch support)
+- :hourglass: Minimal demonstrator based on ported legacy code (no switch support)
+  * A repo has been started with vendor networking code copied from U-Boot (GPL), does not yet build
 - :soon: Quality ethernet driver developed and contributed to OpenWRT
 - :soon: Finalized ethernet driver with MT7530 switch contributed to Linux kernel
 - :soon: Reviews addressed and code accepted in Linux kernel
@@ -64,7 +66,8 @@ Currently there are OpenWRT builds of main branch, but not releases. The filesys
 
 **Objective**: First-class OpenWRT support with release version, package repository, data storage partition (SD-Card or UBI), and working update process.
 
-- :soon: Support added to Zyxel PMG5617GA (EN7526), incl. OpenWRT wiki update
+- :hourglass: Support added to Zyxel PMG5617GA (EN7526), incl. OpenWRT wiki update
+  * Got a device hooked up to serial, support should be submitted soon
 - :soon: OpenWRT package for USB / SD-Card root-fs
 - :soon: OpenWRT optional UBI root-fs overlay support
 - :soon: OpenWRT package repository delivered and installation issues resolved
