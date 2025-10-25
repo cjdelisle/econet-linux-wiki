@@ -2,7 +2,7 @@
 title: Project Plan
 description: Plan for the EcoNet Linux project
 published: true
-date: 2025-10-24T12:41:37.248Z
+date: 2025-10-25T06:31:58.449Z
 tags: 
 editor: markdown
 dateCreated: 2025-10-24T12:03:51.502Z
@@ -17,7 +17,6 @@ This project is supported by **[NGI Zero Core](https://nlnet.nl/core/)**, a Hori
 | [![nlnet.svg](https://nlnet.nl/image/logo_nlnet.svg)](https://nlnet.nl/project/Econet-Linux-mainline/) | [<img src="https://nlnet.nl/image/logos/NGI0Core_tag.svg" width=220/>](https://nlnet.nl/core/) |
 |---------:|:--------:|
 
-**This is the agreed-upon plan**
 </center>
 
 While EcoNet Linux is a long term vision for *all* EcoNet MIPS devices, this specific project has a one-year duration and a defined plan for specific chipsets. The goal of this project is to get PCI (Wifi), USB, Ethernet, and PON (Optical) support in the EN751221 processor family - that is, *everything*, with the exception of DSL and VoIP.
