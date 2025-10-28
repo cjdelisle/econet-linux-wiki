@@ -2,7 +2,7 @@
 title: Project Plan
 description: Plan for the EcoNet Linux project
 published: true
-date: 2025-10-25T06:31:58.449Z
+date: 2025-10-28T21:11:26.168Z
 tags: 
 editor: markdown
 dateCreated: 2025-10-24T12:03:51.502Z
@@ -34,7 +34,7 @@ Before starting the project, there was a [demonstration with legacy code](https:
 - :soon: Clock developed and submitted to the Linux kernel
 - :soon: PCIe finalized and submitted to the Linux kernel
 - :hourglass: Wifi drivers added to OpenWRT and builds
-  * Wifi support based on dirty vendor PCI driver to be published soon
+  * Wifi support based on dirty vendor PCI driver exists in a branch ( https://github.com/cjdelisle/openwrt/tree/econet-pci-vendor ) but it is not able to be merged to OpenWRT until mt76 endianness bug (patch: https://lkml.org/lkml/2025/10/27/1464 ) has been addressed in OpenWRT mt76 fork.
 - :soon: Patchset submitted to OpenWRT
 - :soon: Reviews addressed and code accepted in Linux kernel
 
@@ -66,7 +66,7 @@ Currently there are OpenWRT builds of main branch, but not releases. The filesys
 **Objective**: First-class OpenWRT support with release version, package repository, data storage partition (SD-Card or UBI), and working update process.
 
 - :hourglass: Support added to Zyxel PMG5617GA (EN7526), incl. OpenWRT wiki update
-  * Got a device hooked up to serial, support should be submitted soon
+  * Pull request made: https://github.com/openwrt/openwrt/pull/20580
 - :soon: OpenWRT package for USB / SD-Card root-fs
 - :soon: OpenWRT optional UBI root-fs overlay support
 - :soon: OpenWRT package repository delivered and installation issues resolved
