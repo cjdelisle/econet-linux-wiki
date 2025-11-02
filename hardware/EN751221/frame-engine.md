@@ -2,7 +2,7 @@
 title: Frame Engine
 description: 
 published: true
-date: 2025-11-01T22:46:47.362Z
+date: 2025-11-02T09:24:13.850Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T23:25:26.867Z
@@ -17,17 +17,27 @@ Frame engine port numbers are listed [here](https://github.com/cjdelisle/EN75122
 ```plantuml
 @startuml FrameEngine
 skinparam linetype ortho
+skinparam backgroundColor #f5f5f5
+title "Frame Engine"
 
-component "Frame Engine" as Application {
+component {
+    component QDMA1
+    component QDMA2
     component GDM1
     component GDM2
     component PPE
-    component QDMA
-    
 }
-QDMA <-up-> (CPU)
-GDM1 <-down-> (MT7530)
-GDM2 <-down-> (DSL/PON)
+
+QDMA1 <-left-> (CPU)
+QDMA2 <-left-> (CPU)
+QDMA1 -[hidden]down-> QDMA2
+
+QDMA1 -[hidden]right-> GDM1
+QDMA2 -[hidden]right-> GDM2
+QDMA1 -[hidden]up-> PPE
+
+GDM1 <-right-> (MT7530)
+GDM2 <-right-> (WAN / xPON)
 @enduml
 
 ```
@@ -38,18 +48,22 @@ GDM2 <-down-> (DSL/PON)
 
 ## QDMA
 
-The EcoNet ethernet device uses a subsystem called QDMA (QoS + DMA?) for handling transfers
-between the system and the ethernet ports. On EN751221 there are two QDMA devices, generally
-they are used one for LAN and one for the WAN, though they both have the ability to send to
-either port.
+The EcoNet ethernet device uses a subsystem called QDMA (QoS + DMA?) for handling transfers between the system and the ethernet ports. On EN751221 there are two QDMA devices, generally they are used one for LAN and one for the WAN, though they both have the ability to send to either port.
 
-On a fiber modem, the WAN port goes to the fiber subsystem, while on a DSL modem, it goes
-to an auxilliary ethernet port.
+On a fiber modem, the WAN port goes to the fiber subsystem, while on a DSL modem, it goes to an auxilliary ethernet port.
 
 The LAN port goes to an integrated switch which routes to the four physical LAN ports.
 
-### DMA Zones
-Each QDMA system has a pair of RX/TX queues, though drivers generally only use queue zero.
+### Rings
+Each QDMA has two pairs of RX/TX rings. These rings are not relevant to the QoS process, but sending top priority traffic via the 2nd ring helps reduce latency because you don't need to wait for DMA to examine and prioritize the packets which are ahead of it.
+
+In each ring there are `DSCP` messages ("Packet Descriptors"), each DSCP message has a pointer to the packet data, the length, and a `msg` field which contains contextual data depending on whether the packet is being sent or received and whether on Ethernet or xPON.
+
+The `DSCP` messages also each have a field `next_idx` which points to "the next DSCP in the ring that should be examined". The way the rings are controlled is through two registers: `CPU_IDX` and `DMA_IDX`. On the TX side, the driver advances `CPU_IDX` to its current position in the ring and the DMA engine tries to catch up, updating `DMA_IDX` to it's position. In the TX direction, the driver is advancing `CPU_IDX` and the engine is trying to catch up with it, in the RX direction, the engine is advancing `DMA_IDX` and the driver is trying to catch up.
+
+At initiation, the `next_idx` just points to the next element in the array, and for RX, it is enough that it stays this way because there's no reason to dequeue packets in any order other than the order that they are received. However, in the TX direction it is a different story. The order in which the QDMA engine dequeues packets is NOT the order that you enqueued them, it's an order based on priority - with highest priority and lowest priority (dropped packets) being dequeued before medium priority. Because the pool of ready TX DSCPs will become out of order, the `next_idx` field allows the driver to create a linked list starting from whichever packet the driver is currently processing to whichever packet you are just now enqueuing. When you enqueue a packet to transmit, you just need to have one spare DSCP that will be used to enqueue your *next* packet, and that's the index you will fill in to the `next_idx`. You can even enqueue multiple packets at the same time, as long as the first one is using your spare DSCP from your previous send, each one pointing to the next, and the `CPU_IDX` is set to the last one. The DMA engine will just walk the linked list from it's current `DMA_IDX` until it reaches your `CPU_IDX` and then stop.
+
+Because TX packets are processed out of order, there is also a "Done List", referred to in the drivers as an "IRQ Queue". This is just an array of packet indexes that are completed.
 
 ### DMA DSCP Message
 
@@ -81,7 +95,7 @@ Each QDMA system has a pair of RX/TX queues, though drivers generally only use q
 * `N` - NLS flag (not allowed on EN751221)
 * `pkt_len` - Length of the packet in bytes
 * `pkt_addr` - Physical (DMA) address of the packet
-* `next_idx` - Index of the next descriptor in the ring
+* `next_idx` - Index of the next descriptor in the ring.
 * `msg` - Data about the packet, one of
   - Ethernet RX Message
   - Ethernet TX Message
@@ -259,6 +273,24 @@ This is what you need to construct in order to send off an xPON message.
 * `gem` - The GEM port number
 * `O` - `oam`, Set if this is an OMCI / OAM packet.
 * Everything else: Seems to be same as with Ethernet
+
+### TX Done List
+After sending each packet, you would normally receive an interrupt to indicate that the send is complete, but this would create too many interrupts so instead the sent-notifications are stored to a memory array and you only receive an interrupt when a certain threshold is reached. After which you can free all of the sk_buffs and return the DSCP messages to the free list for reuse.
+
+
+```
+   0               1               2               3
+   0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 0 |            Unknown          |R| Unkno |       Desc Number     |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4 
+```
+
+* `R` - The ring number of this entry, either TX ring 0 or TX ring 1
+* `Desc Number` - The number of the Packet Descriptor in the ring
+
+
 
 
 ## Related Specifications
