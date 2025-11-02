@@ -2,7 +2,7 @@
 title: Frame Engine
 description: 
 published: true
-date: 2025-11-02T09:24:13.850Z
+date: 2025-11-02T09:25:13.625Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T23:25:26.867Z
@@ -12,12 +12,12 @@ dateCreated: 2025-03-20T23:25:26.867Z
 
 Frame engine port numbers are listed [here](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/fe/en7512/fe_reg_en7512.h#L696).
 
-
+<center>
 
 ```plantuml
 @startuml FrameEngine
 skinparam linetype ortho
-skinparam backgroundColor #f5f5f5
+skinparam backgroundColor #ffffff
 title "Frame Engine"
 
 component {
@@ -41,6 +41,8 @@ GDM2 <-right-> (WAN / xPON)
 @enduml
 
 ```
+  
+</center>
 
 ## FE_BASE
 
