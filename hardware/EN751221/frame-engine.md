@@ -2,7 +2,7 @@
 title: Frame Engine
 description: 
 published: true
-date: 2025-11-02T09:25:13.625Z
+date: 2025-11-02T11:38:48.463Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T23:25:26.867Z
@@ -10,9 +10,13 @@ dateCreated: 2025-03-20T23:25:26.867Z
 
 # Frame Engine
 
-Frame engine port numbers are listed [here](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/fe/en7512/fe_reg_en7512.h#L696).
+The EcoNet Ethernet / xPON driver is known as the "Frame Engine", it consists of:
 
-<center>
+* Two **QDMA** engines which handle QoS and which transport data to and from the CPU.
+* Two **GDM** ports which control the two physical ports, one of which goes to an internal MT7530 switch, and the other which goes to either an xPON subsystem, or a WAN ethernet port (in the DSL case).
+* A Packet Processing Engine (**PPE**) which is able to do things like hardware NAT and QoS re-classification.
+
+<div align="center">
 
 ```plantuml
 @startuml FrameEngine
@@ -36,25 +40,18 @@ QDMA1 -[hidden]right-> GDM1
 QDMA2 -[hidden]right-> GDM2
 QDMA1 -[hidden]up-> PPE
 
-GDM1 <-right-> (MT7530)
+GDM1 <-right-> (MT7530 Switch)
 GDM2 <-right-> (WAN / xPON)
 @enduml
-
 ```
-  
-</center>
 
-## FE_BASE
+</div>
 
-[0xBFB50000](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/modules/private/ether/en7512/eth_en7512.h#L53)
+It is tempting to think of the two QDMA engines as being linked to the two GDM ports, but this is not how the Frame Engine works. Each packet being sent it tagged with an `fport` (forward to port) which is one of the QDMA engines, one of the GDM engines, or the PPE.
 
 ## QDMA
 
-The EcoNet ethernet device uses a subsystem called QDMA (QoS + DMA?) for handling transfers between the system and the ethernet ports. On EN751221 there are two QDMA devices, generally they are used one for LAN and one for the WAN, though they both have the ability to send to either port.
-
-On a fiber modem, the WAN port goes to the fiber subsystem, while on a DSL modem, it goes to an auxilliary ethernet port.
-
-The LAN port goes to an integrated switch which routes to the four physical LAN ports.
+The EcoNet ethernet device uses a subsystem called QDMA (QoS + DMA?) for handling transfers between the system (CPU) and the Frame Engine. The QDMAs are also used for QoS during hardware forwarding, so just because a packet enters a QDMA does not mean it is going to go to the CPU.
 
 ### Rings
 Each QDMA has two pairs of RX/TX rings. These rings are not relevant to the QoS process, but sending top priority traffic via the 2nd ring helps reduce latency because you don't need to wait for DMA to examine and prioritize the packets which are ahead of it.
@@ -67,7 +64,11 @@ At initiation, the `next_idx` just points to the next element in the array, and 
 
 Because TX packets are processed out of order, there is also a "Done List", referred to in the drivers as an "IRQ Queue". This is just an array of packet indexes that are completed.
 
+### Hardware Forwarding
+The QDMA also has another pair of rings for hardware forwarding, but these are not that important to understand because the driver only needs to provide them with memory.
+
 ### DMA DSCP Message
+Every packet that is sent or received will be registered to a Packet Descriptor in the TX or RX ring, the layout of the descriptor is as follows:
 
 ```
 .   0               1               2               3
@@ -92,7 +93,7 @@ Because TX packets are processed out of order, there is also a "Done List", refe
 32
 ```
 
-* `D` - Descriptor Done flag
+* `D` - Descriptor Done flag, this roughly means that the DSCP "belongs to the driver", the hardware will set it when it is done receiving or sending and will check to make sure it's not touching a DSCP that is not meant for it. This is not strictly necessary, you can determine which packets are yours only through ring indexes and the TX Done List, and setting and checking of this flag *can* be deactivated.
 * `R` - Packet has been dropped
 * `N` - NLS flag (not allowed on EN751221)
 * `pkt_len` - Length of the packet in bytes
