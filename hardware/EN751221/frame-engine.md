@@ -2,7 +2,7 @@
 title: Frame Engine
 description: 
 published: true
-date: 2025-11-02T11:38:48.463Z
+date: 2025-11-03T08:01:34.050Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T23:25:26.867Z
@@ -50,10 +50,73 @@ GDM2 <-right-> (WAN / xPON)
 It is tempting to think of the two QDMA engines as being linked to the two GDM ports, but this is not how the Frame Engine works. Each packet being sent it tagged with an `fport` (forward to port) which is one of the QDMA engines, one of the GDM engines, or the PPE.
 
 ## QDMA
-
 The EcoNet ethernet device uses a subsystem called QDMA (QoS + DMA?) for handling transfers between the system (CPU) and the Frame Engine. The QDMAs are also used for QoS during hardware forwarding, so just because a packet enters a QDMA does not mean it is going to go to the CPU.
 
-### Rings
+```plantuml
+@startuml QDMA
+'skinparam linetype ortho
+skinparam backgroundColor #ffffff
+skinparam padding 5
+title "QDMA Memory Layout"
+
+'component EMPTY_SKB1
+'component EMPTY_SKB2
+'component SKB_TO_SEND1
+'component SKB_TO_SEND2
+component TX_RING1 {
+  component TDESC1
+  component TDESC2
+}
+component RX_RING1 {
+  component RDESC1
+  component RDESC2
+}
+component FWD_RING {
+  component FDESC1
+  component FDESC2
+}
+component FWD_MEM {
+  component BUF1
+  component BUF2
+}
+component DONE_LIST {
+  component DONE_MARKER1
+}
+
+DONE_MARKER1 --> TDESC2
+TDESC2 --> SENT_SKB
+RDESC1 --> EMPTY_SKB1
+RDESC2 --> EMPTY_SKB2
+FDESC1 --> TDESC1
+TDESC1 --> SKB_TO_SEND
+FDESC2 --> BUF1
+
+@enduml
+```
+Each QDMA has:
+* Two pairs of RX/TX descriptor rings: `RX_RING1` / `TX_RING1`, 2nd pair not shown.
+* A single forwarding descriptor ring: `FWD_RING`
+* A single TX-done-list `DONE_LIST`, and
+* A single forwarding memory buffer `FWD_MEM`
+
+### Workflows
+* **Sending a packet**
+  1. When you send a packet, you enqueue a pointer to the packet's data buffer in a descriptor in one of the two TX rings.
+  2. The QDMA engine then creates a descriptor in the `FWD_RING` which references your descriptor in your TX ring
+  3. The packet is sent
+  4. The QDMA engine recycles the `FWD_RING` descriptor and sets the "done" mark on the descriptor in the TX ring
+  5. The QDMA engine creates an entry in the `DONE_LIST` to indicate that you can now recycle the descriptor in the TX ring.
+  6. When the `DONE_LIST` reaches a certain (configurable) proportion of done descriptors, you receive an interrupt so that you can recycle your descriptors. 
+* **Receiving a packet**
+  1. Before you can receive, you must register an empty packet buffer to a descriptor in the RX ring which you are to receive from.
+  2. The QDMA engine selects a ready descriptor from the RX Ring and writes the data to the memory buffer that is pointed to by that descriptor.
+  3. You receive an interrupt telling you that you have a packet ready to receive. Like with TX, you can configure the engine to delay interrupts so that receipts are aggregated, but unlike TX there is no done list because packets are always received in the order of the ring - so the ring is the list.
+* **Forwarding a packet**
+  1. During setup, you configure an area of memory to be available for packet forwarding (`FWD_MEM`).
+  2. When a packet comes in which matches a forwarding rule, a descriptor is allocated in the `FWD_RING` and pointed to a memory location in the `FWD_MEM` zone.
+  3. After the packet is sent, the `FWD_RING` entry and corrisponding buffer is recycled. All of these steps are done autonamously by the QDMA engine.
+
+### How The TX/RX Rings Work
 Each QDMA has two pairs of RX/TX rings. These rings are not relevant to the QoS process, but sending top priority traffic via the 2nd ring helps reduce latency because you don't need to wait for DMA to examine and prioritize the packets which are ahead of it.
 
 In each ring there are `DSCP` messages ("Packet Descriptors"), each DSCP message has a pointer to the packet data, the length, and a `msg` field which contains contextual data depending on whether the packet is being sent or received and whether on Ethernet or xPON.
@@ -63,9 +126,6 @@ The `DSCP` messages also each have a field `next_idx` which points to "the next 
 At initiation, the `next_idx` just points to the next element in the array, and for RX, it is enough that it stays this way because there's no reason to dequeue packets in any order other than the order that they are received. However, in the TX direction it is a different story. The order in which the QDMA engine dequeues packets is NOT the order that you enqueued them, it's an order based on priority - with highest priority and lowest priority (dropped packets) being dequeued before medium priority. Because the pool of ready TX DSCPs will become out of order, the `next_idx` field allows the driver to create a linked list starting from whichever packet the driver is currently processing to whichever packet you are just now enqueuing. When you enqueue a packet to transmit, you just need to have one spare DSCP that will be used to enqueue your *next* packet, and that's the index you will fill in to the `next_idx`. You can even enqueue multiple packets at the same time, as long as the first one is using your spare DSCP from your previous send, each one pointing to the next, and the `CPU_IDX` is set to the last one. The DMA engine will just walk the linked list from it's current `DMA_IDX` until it reaches your `CPU_IDX` and then stop.
 
 Because TX packets are processed out of order, there is also a "Done List", referred to in the drivers as an "IRQ Queue". This is just an array of packet indexes that are completed.
-
-### Hardware Forwarding
-The QDMA also has another pair of rings for hardware forwarding, but these are not that important to understand because the driver only needs to provide them with memory.
 
 ### DMA DSCP Message
 Every packet that is sent or received will be registered to a Packet Descriptor in the TX or RX ring, the layout of the descriptor is as follows:
@@ -293,8 +353,31 @@ After sending each packet, you would normally receive an interrupt to indicate t
 * `R` - The ring number of this entry, either TX ring 0 or TX ring 1
 * `Desc Number` - The number of the Packet Descriptor in the ring
 
+### Hardware Forwarding Ring
+The Hardware forwarding descriptors are different from the TX/RX descriptors, they are only 16 bytes long rather than 32 and they contain a reference to the context TX descriptor (if they exist because of a TX). They are created and used only by the hardware QDMA engine, so the only reason to know what is in them is for debugging purposes.
 
+```
+.   0               1               2               3
+    0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 0 |                        pkt_addr (32)                          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 4 |C|rsv|R|        ctx_idx        |             pkt_len           |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ 8 |                                                               |
+   +                           msg (64)                            +
+12 |                                                               |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+16
+```
 
+* `pkt_addr` - A pointer to the memory location of the packet data, copied from the context descriptor if this is a TX based entry, otherwise allocated from the `FWD_MEM` space.
+* `C` - `ctx`, True if there is a context descriptor (i.e. it is send, not a forward)
+* `rsv` - Reserved
+* `R` - `ctx_ring`, If `C` is set then this is the number of the context ring (0 or 1) because there are 2 transmit rings.
+* `ctx_idx` - If `C` is set then this is the index within the TX ring of the context packet descriptor.
+* `pkt_len` - The length of the packet data, if this is contextual it is still copied from the context descriptor.
+* `msg` - The Ethernet TX Message or xPON TX Message structure, copied from the context descriptor. If this is a forwarded packet then the content here is unknown.
 
 ## Related Specifications
 The register map does not match the MT7621 SoC but they are related.
