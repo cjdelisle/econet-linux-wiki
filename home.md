@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-10-24T12:28:36.762Z
+date: 2025-11-07T18:16:48.251Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -29,7 +29,9 @@ See: [Hardware](/hardware)
   * :white_check_mark: Ability to boot to a console
   * :white_check_mark: USB 2.0 support in OpenWRT
   * :hourglass: PCIe (Wifi) support in OpenWRT
-  * :soon: Ethernet Support
+    * Waiting for [kernel patch](https://lkml.org/lkml/2025/10/29/1939) review
+  * :hourglass: Ethernet Support
+    * Waiting for [OpenWrt PR](https://github.com/openwrt/openwrt/pull/20685) review
   * :question: xPON (Fiber) Support (EN7521 & EN7526)
   * :question: xDSL Support (EN7512 & EN7513)
 * **EN751627** :x: No support yet
@@ -38,6 +40,12 @@ See: [Hardware](/hardware)
 * **EN7528** Fiber :x: No support yet
 * **EN7580** Fiber (10Gb GPON) :x: No support yet
 
+### Current Open Patches and Pull Requests
+* **OpenWrt**
+  * [Rudimentry Ethernet Support](https://github.com/openwrt/openwrt/pull/20685)
+  * [New Device: Zyxel PMG5617GA](https://github.com/openwrt/openwrt/pull/20580)
+* **Linux Kernel**
+  * [Fix Big Endian Support in mt76](https://lkml.org/lkml/2025/10/29/1939)
 ## What are EcoNet SoCs?
 EcoNet chips are used in DSL and XPON CPE. They are big endian MIPS, and come from the TrendChip TC3162 heritage. They mostly fall into two categories:
 * [EN751221](/hardware/EN751221) based on 34Kc with a custom interrupt controller, and
