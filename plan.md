@@ -2,7 +2,7 @@
 title: Project Plan
 description: Plan for the EcoNet Linux project
 published: true
-date: 2025-10-28T21:11:26.168Z
+date: 2025-11-17T21:49:33.170Z
 tags: 
 editor: markdown
 dateCreated: 2025-10-24T12:03:51.502Z
@@ -79,7 +79,10 @@ Currently we haven’t tested on EN751627 because the only device we have has a 
 
 **Objective**: Bring the EN7516 up to the level of "boots to a console" which is the current (as of beginning the project) status of the EN751221 in Linux upstream. This allows a jumping-off point for future development of the EN7516, the EN7528 and the EN7580.
 
-- :soon: EN7516 Publish Unlocked Bootloader & register maps documented
+- :white_check_mark: EN7516 Publish Unlocked Bootloader & register maps documented
+  - Bootloader dump: https://github.com/cjdelisle/en7516_bootloader
+  - Bootloader unlocker: https://github.com/cjdelisle/ATENv3
+  - Register map: https://docs.google.com/spreadsheets/d/1FyAJ9bYTcF1nJE8PwQ7xcb5vSNepEj5lCs6cgAojrKA/edit?gid=1867175737#gid=1867175737
 - :soon: Bootable PoC added to OpenWRT (PoC interrupt controller)
 - :soon: GIC interrupt controller driver, submitted to Linux and OpenWRT
 - :soon: DMA based flash driver (using Airoha's driver)
