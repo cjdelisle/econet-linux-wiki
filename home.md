@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-11-07T18:44:20.026Z
+date: 2025-11-18T13:58:20.988Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -33,7 +33,7 @@ See: [Hardware](/hardware)
     * Waiting for [OpenWrt PR](https://github.com/openwrt/openwrt/pull/20685) review
   * :question: xPON (Fiber) Support (EN7521 & EN7526)
   * :question: xDSL Support (EN7512 & EN7513)
-* **EN751627** :x: No support yet
+* **[EN751627](/hardware/EN751627)** :x: No support yet
   * EN7516 DSL
   * EN7527 Fiber
 * **EN7528** Fiber :x: No support yet
