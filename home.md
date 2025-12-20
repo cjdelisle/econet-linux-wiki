@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-11-18T13:58:20.988Z
+date: 2025-12-20T21:32:27.736Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -38,7 +38,7 @@ See: [Hardware](/hardware)
   * EN7527 Fiber
 * **EN7528** Fiber :x: No support yet
 * **EN7580** Fiber (10Gb GPON) :x: No support yet
-
+*  **[EN7523](/hardware/EN7523)** (EN7523, EN7529, EN7562)
 ### Current Open Patches and Pull Requests
 * **OpenWrt**
   * [Rudimentry Ethernet Support](https://github.com/openwrt/openwrt/pull/20685)
