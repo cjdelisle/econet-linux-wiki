@@ -2,7 +2,7 @@
 title: Frame Engine
 description: 
 published: true
-date: 2025-11-03T08:01:34.050Z
+date: 2025-12-20T21:38:57.553Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-20T23:25:26.867Z
@@ -13,6 +13,7 @@ dateCreated: 2025-03-20T23:25:26.867Z
 The EcoNet Ethernet / xPON driver is known as the "Frame Engine", it consists of:
 
 * Two **QDMA** engines which handle QoS and which transport data to and from the CPU.
+* One **TDMA** enigne (very similar to Mediatek PDMA) which can handle transport of data to and from the CPU.
 * Two **GDM** ports which control the two physical ports, one of which goes to an internal MT7530 switch, and the other which goes to either an xPON subsystem, or a WAN ethernet port (in the DSL case).
 * A Packet Processing Engine (**PPE**) which is able to do things like hardware NAT and QoS re-classification.
 
@@ -27,6 +28,7 @@ title "Frame Engine"
 component {
     component QDMA1
     component QDMA2
+    component TDMA
     component GDM1
     component GDM2
     component PPE
@@ -34,11 +36,12 @@ component {
 
 QDMA1 <-left-> (CPU)
 QDMA2 <-left-> (CPU)
+TDMA <-left-> (CPU)
 QDMA1 -[hidden]down-> QDMA2
 
 QDMA1 -[hidden]right-> GDM1
 QDMA2 -[hidden]right-> GDM2
-QDMA1 -[hidden]up-> PPE
+QDMA1 -[hidden]right-> PPE
 
 GDM1 <-right-> (MT7530 Switch)
 GDM2 <-right-> (WAN / xPON)
