@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2025-12-20T21:32:27.736Z
+date: 2026-01-05T09:14:15.051Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -29,26 +29,28 @@ See: [Hardware](/hardware)
   * :white_check_mark: Ability to boot to a console
   * :white_check_mark: USB 2.0 support in OpenWRT
   * :hourglass: PCIe (Wifi) support in OpenWRT
-  * :hourglass: Ethernet Support
-    * Waiting for [OpenWrt PR](https://github.com/openwrt/openwrt/pull/20685) review
+  * :white_check_mark: Basic Ethernet Support
   * :question: xPON (Fiber) Support (EN7521 & EN7526)
   * :question: xDSL Support (EN7512 & EN7513)
 * **[EN751627](/hardware/EN751627)** :x: No support yet
   * EN7516 DSL
   * EN7527 Fiber
-* **EN7528** Fiber :x: No support yet
+* **EN7528** (Fiber)
+  * :white_check_mark: Ability to boot to a console
 * **EN7580** Fiber (10Gb GPON) :x: No support yet
-*  **[EN7523](/hardware/EN7523)** (EN7523, EN7529, EN7562)
+* **[EN7523](/hardware/EN7523)** (EN7523, EN7529, EN7562)
+  * Airoha ARM devices which are similar to EcoNet and also documented here
 ### Current Open Patches and Pull Requests
 * **OpenWrt**
-  * [Rudimentry Ethernet Support](https://github.com/openwrt/openwrt/pull/20685)
-  * [New Device: Zyxel PMG5617GA](https://github.com/openwrt/openwrt/pull/20580)
+  * [EN7528 Basic Support](https://github.com/openwrt/openwrt/pull/21326)
 * **Linux Kernel**
-  * [Fix Big Endian Support in mt76](https://lkml.org/lkml/2025/10/29/1939) --> [Landed](https://github.com/openwrt/openwrt/commit/e1a584b5d2631c0ba8e82ec850bb45568d137e02) in OpenWrt mt76 :tada:
+  * Nothing right now :tada:
 ## What are EcoNet SoCs?
-EcoNet chips are used in DSL and XPON CPE. They are big endian MIPS, and come from the TrendChip TC3162 heritage. They mostly fall into two categories:
+EcoNet chips are used in DSL and XPON CPE. They are MIPS, and come from the TrendChip TC3162 heritage. They mostly fall into three categories:
 * [EN751221](/hardware/EN751221) based on 34Kc with a custom interrupt controller, and
 * EN751627 based on MIPS 1004Kc with MIPS_GIC
+* EN7528 mostly the same as EN751627 except little endian
+* [EN7523](/hardware/EN7523) - Airoha chipset which is ARM based, but otherwise similar to EcoNet chipsets
 
 They have SPI NAND or NOR flash, PCIe, USB, Ethernet, SLIC (VoIP), and XDSL or XPON depending on the chip.
 
@@ -56,14 +58,27 @@ They have SPI NAND or NOR flash, PCIe, USB, Ethernet, SLIC (VoIP), and XDSL or X
 EcoNet (HK) Limited was a subsidiary of MediaTek who produced broadband devices. In 2021 they were bought by Airoha, another MediaTek subsidiary who makes ARM based broadband chips. EcoNet and Airoha devices have a fair bit in common, but EcoNet devices are MIPS, so the core devices are all quite unique.
 
 ## I have an EcoNet device, what can I do with it?
-Right now, there is basic support in OpenWRT build that can be run on EN751221 devices. It has rudimentary boot-to-a-console capability, but no drivers.
+Right now, there is basic support in OpenWRT build that can be run on certain EN751221 and EN7528 devices, including:
+
+* EN751221
+  * [Zyxel PMG5617GA](https://openwrt.org/inbox/toh/zyxel/zyxel_pmg5617ga)
+  * [TP-Link Archer VR1200v (v2)](https://openwrt.org/inbox/toh/tp-link/archer_vr1200v)
+  * [SmartFiber XP8421-B](https://openwrt.org/inbox/toh/evaluation_boards/unbranded_boards/smartfiber_xp8421-b)
+  * [Nokia G-240G-E](https://openwrt.org/inbox/toh/bt/g-240g-e_1)
+* EN7528
+  * **DASAN H660GM-A**
 
 You can:
 
 * Get the source from https://github.com/openwrt/openwrt/
-* Get binaries from https://github.com/cjdelisle/OpenWRT-EN751221-Builds/releases/latest
+* Get snapshot binaries:
+  * **EN751221** --> https://github.com/cjdelisle/OpenWrt-EN751221-Builds/releases/latest
+  * **EN7528** --> https://github.com/cjdelisle/OpenWrt-EN7528-Builds/releases/latest
 
-**ETHERNET IS NOT SUPPORTED YET, YOU MUST HAVE UART PINS CONNECTED**
+<div style="color:red">
 
-If you have a [SmartFiber XP8421-B](https://openwrt.org/inbox/toh/evaluation_boards/unbranded_boards/smartfiber_xp8421-b#installing_openwrt_from_the_bootloader_in_linux) or [TP-Link Archer VR1200v (v2)](https://openwrt.org/inbox/toh/tp-link/archer_vr1200v) then you can install from the relevant documentation. Otherwise you will only be able to load the generic image to memory, see the [VR1200v Debricking Guide](https://openwrt.org/inbox/toh/tp-link/archer_vr1200v#debricking) for instructions how to do that.
+**SUPPORT IS STILL EXPERIMENTAL, YOU MUST HAVE UART PINS CONNECTED**
 
+</div>
+
+If you have an EN751221 or EN7528 which is not on the list, you can still potentially load the generic kernel into memory and jump to it from the bootloader, see the [VR1200v Debricking Guide](https://openwrt.org/inbox/toh/tp-link/archer_vr1200v#debricking) for instructions how to do that.
