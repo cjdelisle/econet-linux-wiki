@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2026-01-15T22:34:35.486Z
+date: 2026-01-15T22:35:22.730Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -36,7 +36,7 @@ See: [Hardware](/hardware)
   * EN7516 DSL
   * EN7527 Fiber
 * **EN7528** (Fiber)
-  * :white_check_mark: Ability to boot to a console
+  * :white_check_mark: Ability to boot to a console (not yet merged on OpenWrt)
 * **EN7580** Fiber (10Gb GPON) :x: No support yet
 * **[EN7523](/hardware/EN7523)** (EN7523, EN7529, EN7562)
   * Airoha ARM devices which are similar to EcoNet and also documented here
