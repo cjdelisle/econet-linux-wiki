@@ -2,7 +2,7 @@
 title: Project Plan
 description: Plan for the EcoNet Linux project
 published: true
-date: 2025-11-17T21:49:33.170Z
+date: 2026-01-15T22:32:22.514Z
 tags: 
 editor: markdown
 dateCreated: 2025-10-24T12:03:51.502Z
@@ -54,9 +54,9 @@ Currently there is no Ethernet support whatsoever.
 
 **Objective**: Fully functioning Ethernet on EN751221 with support for controlling the MT7530 switch that is embedded on-chip.
 
-- :hourglass: Minimal demonstrator based on ported legacy code (no switch support)
-  * A repo has been started with vendor networking code copied from U-Boot (GPL), does not yet build
-- :soon: Quality ethernet driver developed and contributed to OpenWRT
+- :white_check_mark: Minimal demonstrator based on ported legacy code (no switch support)
+- :white_check_mark: Quality ethernet driver developed and contributed to OpenWRT
+  - Complete and submitted in https://github.com/openwrt/openwrt/pull/21557
 - :soon: Finalized ethernet driver with MT7530 switch contributed to Linux kernel
 - :soon: Reviews addressed and code accepted in Linux kernel
 
