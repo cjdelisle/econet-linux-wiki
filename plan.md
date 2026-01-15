@@ -2,7 +2,7 @@
 title: Project Plan
 description: Plan for the EcoNet Linux project
 published: true
-date: 2026-01-15T22:32:22.514Z
+date: 2026-01-15T22:33:08.581Z
 tags: 
 editor: markdown
 dateCreated: 2025-10-24T12:03:51.502Z
@@ -65,8 +65,7 @@ Currently there are OpenWRT builds of main branch, but not releases. The filesys
 
 **Objective**: First-class OpenWRT support with release version, package repository, data storage partition (SD-Card or UBI), and working update process.
 
-- :hourglass: Support added to Zyxel PMG5617GA (EN7526), incl. OpenWRT wiki update
-  * Pull request made: https://github.com/openwrt/openwrt/pull/20580
+- :white_check_mark: Support added to Zyxel PMG5617GA (EN7526), incl. OpenWRT wiki update
 - :soon: OpenWRT package for USB / SD-Card root-fs
 - :soon: OpenWRT optional UBI root-fs overlay support
 - :soon: OpenWRT package repository delivered and installation issues resolved
