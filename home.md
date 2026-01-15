@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2026-01-05T09:14:15.051Z
+date: 2026-01-15T22:34:35.486Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -43,6 +43,8 @@ See: [Hardware](/hardware)
 ### Current Open Patches and Pull Requests
 * **OpenWrt**
   * [EN7528 Basic Support](https://github.com/openwrt/openwrt/pull/21326)
+  * [Clock/Reset for EN751221](https://github.com/openwrt/openwrt/pull/21545)
+  * [New Ethernet for EN751221](https://github.com/openwrt/openwrt/pull/21557)
 * **Linux Kernel**
   * Nothing right now :tada:
 ## What are EcoNet SoCs?
