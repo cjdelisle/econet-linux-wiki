@@ -2,7 +2,7 @@
 title: Project Plan
 description: Plan for the EcoNet Linux project
 published: true
-date: 2026-01-15T22:33:08.581Z
+date: 2026-03-04T07:27:26.239Z
 tags: 
 editor: markdown
 dateCreated: 2025-10-24T12:03:51.502Z
@@ -30,11 +30,12 @@ Before starting the project, there was a [demonstration with legacy code](https:
 
 **Objective**: PCIe with working PHY and correct CLK driver, submitted to Linux upstream and OpenWRT. Wifi drivers added to OpenWRT builds.
 
-- :soon: PCIe PHY developed and submitted to the Linux kernel
-- :soon: Clock developed and submitted to the Linux kernel
-- :soon: PCIe finalized and submitted to the Linux kernel
-- :hourglass: Wifi drivers added to OpenWRT and builds
-  * Wifi support based on dirty vendor PCI driver exists in a branch ( https://github.com/cjdelisle/openwrt/tree/econet-pci-vendor ) but it is not able to be merged to OpenWRT until mt76 endianness bug (patch: https://lkml.org/lkml/2025/10/27/1464 ) has been addressed in OpenWRT mt76 fork.
+- :white_check_mark: PCIe PHY developed and submitted to the Linux kernel
+- :white_check_mark: Clock developed and submitted to the Linux kernel
+- :white_check_mark: PCIe finalized and submitted to the Linux kernel
+  - https://lore.kernel.org/linux-mips/20260303190948.694783-1-cjd@cjdns.fr/T/#t
+- :white_check_mark: Wifi drivers added to OpenWRT and builds
+  * https://github.com/openwrt/openwrt/pull/22208
 - :soon: Patchset submitted to OpenWRT
 - :soon: Reviews addressed and code accepted in Linux kernel
 
