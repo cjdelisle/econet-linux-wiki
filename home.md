@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2026-01-15T22:35:22.730Z
+date: 2026-03-04T07:23:06.284Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -36,17 +36,15 @@ See: [Hardware](/hardware)
   * EN7516 DSL
   * EN7527 Fiber
 * **EN7528** (Fiber)
-  * :white_check_mark: Ability to boot to a console (not yet merged on OpenWrt)
+  * :white_check_mark: Ability to boot to a console
 * **EN7580** Fiber (10Gb GPON) :x: No support yet
 * **[EN7523](/hardware/EN7523)** (EN7523, EN7529, EN7562)
   * Airoha ARM devices which are similar to EcoNet and also documented here
 ### Current Open Patches and Pull Requests
 * **OpenWrt**
-  * [EN7528 Basic Support](https://github.com/openwrt/openwrt/pull/21326)
-  * [Clock/Reset for EN751221](https://github.com/openwrt/openwrt/pull/21545)
-  * [New Ethernet for EN751221](https://github.com/openwrt/openwrt/pull/21557)
+  * [PCIe / Wifi support](https://github.com/openwrt/openwrt/pull/22208)
 * **Linux Kernel**
-  * Nothing right now :tada:
+  * [PCIe support](https://lore.kernel.org/linux-mips/20260303190948.694783-1-cjd@cjdns.fr/T/#t)
 ## What are EcoNet SoCs?
 EcoNet chips are used in DSL and XPON CPE. They are MIPS, and come from the TrendChip TC3162 heritage. They mostly fall into three categories:
 * [EN751221](/hardware/EN751221) based on 34Kc with a custom interrupt controller, and
