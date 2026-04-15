@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2026-03-04T07:23:06.284Z
+date: 2026-04-15T15:40:09.968Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -28,13 +28,18 @@ See: [Hardware](/hardware)
 * **[EN751221](/hardware/EN751221)** (EN7512, EN7513, EN7521, EN7526)
   * :white_check_mark: Ability to boot to a console
   * :white_check_mark: USB 2.0 support in OpenWRT
-  * :hourglass: PCIe (Wifi) support in OpenWRT
+  * :white_check_mark: PCIe (Wifi) support in OpenWRT
   * :white_check_mark: Basic Ethernet Support
-  * :question: xPON (Fiber) Support (EN7521 & EN7526)
-  * :question: xDSL Support (EN7512 & EN7513)
-* **[EN751627](/hardware/EN751627)** :x: No support yet
-  * EN7516 DSL
-  * EN7527 Fiber
+  * :question: DSA Ethernet Switch Support
+  * :x: xPON (Fiber) Support (EN7521 & EN7526)
+  * :x: xDSL Support (EN7512 & EN7513)
+* **[EN751627](/hardware/EN751627)** (EN7516, EN7527)
+  * :hourglass: Ability to boot to a console
+  * :hourglass: USB 2.0 support in OpenWRT
+  * :hourglass: PCIe (Wifi) support in OpenWRT
+  * :x: Basic Ethernet Support
+  * :x: xPON (Fiber) Support (EN7521 & EN7526)
+  * :x: xDSL Support (EN7512 & EN7513)
 * **EN7528** (Fiber)
   * :white_check_mark: Ability to boot to a console
 * **EN7580** Fiber (10Gb GPON) :x: No support yet
@@ -43,12 +48,14 @@ See: [Hardware](/hardware)
 ### Current Open Patches and Pull Requests
 * **OpenWrt**
   * [PCIe / Wifi support](https://github.com/openwrt/openwrt/pull/22208)
+  * [EN751627 support](https://github.com/openwrt/openwrt/pull/22945)
 * **Linux Kernel**
-  * [PCIe support](https://lore.kernel.org/linux-mips/20260303190948.694783-1-cjd@cjdns.fr/T/#t)
+  * [PCIe PHY](https://patchwork.kernel.org/project/linux-phy/patch/20260404184918.2184070-3-cjd@cjdns.fr/)
+  * [PCIe Support](https://patchwork.kernel.org/project/linux-pci/patch/20260413140339.16238-3-cjd@cjdns.fr/)
 ## What are EcoNet SoCs?
 EcoNet chips are used in DSL and XPON CPE. They are MIPS, and come from the TrendChip TC3162 heritage. They mostly fall into three categories:
 * [EN751221](/hardware/EN751221) based on 34Kc with a custom interrupt controller, and
-* EN751627 based on MIPS 1004Kc with MIPS_GIC
+* [EN751627](/hardware/EN751627) based on MIPS 1004Kc with MIPS_GIC
 * EN7528 mostly the same as EN751627 except little endian
 * [EN7523](/hardware/EN7523) - Airoha chipset which is ARM based, but otherwise similar to EcoNet chipsets
 
