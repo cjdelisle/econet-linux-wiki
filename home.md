@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2026-04-15T15:40:09.968Z
+date: 2026-04-16T17:56:47.332Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -52,6 +52,7 @@ See: [Hardware](/hardware)
 * **Linux Kernel**
   * [PCIe PHY](https://patchwork.kernel.org/project/linux-phy/patch/20260404184918.2184070-3-cjd@cjdns.fr/)
   * [PCIe Support](https://patchwork.kernel.org/project/linux-pci/patch/20260413140339.16238-3-cjd@cjdns.fr/)
+  * [Timer support for EN751627/EN7528](https://patchwork.kernel.org/project/linux-mips/list/?series=1082153)
 ## What are EcoNet SoCs?
 EcoNet chips are used in DSL and XPON CPE. They are MIPS, and come from the TrendChip TC3162 heritage. They mostly fall into three categories:
 * [EN751221](/hardware/EN751221) based on 34Kc with a custom interrupt controller, and
