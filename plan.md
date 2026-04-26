@@ -2,7 +2,7 @@
 title: Project Plan
 description: Plan for the EcoNet Linux project
 published: true
-date: 2026-03-04T07:27:26.239Z
+date: 2026-04-26T07:00:34.233Z
 tags: 
 editor: markdown
 dateCreated: 2025-10-24T12:03:51.502Z
@@ -83,7 +83,8 @@ Currently we haven’t tested on EN751627 because the only device we have has a 
   - Bootloader dump: https://github.com/cjdelisle/en7516_bootloader
   - Bootloader unlocker: https://github.com/cjdelisle/ATENv3
   - Register map: https://docs.google.com/spreadsheets/d/1FyAJ9bYTcF1nJE8PwQ7xcb5vSNepEj5lCs6cgAojrKA/edit?gid=1867175737#gid=1867175737
-- :soon: Bootable PoC added to OpenWRT (PoC interrupt controller)
+- :hourglass: Bootable PoC added to OpenWRT (PoC interrupt controller)
+  - Pull Request: https://github.com/openwrt/openwrt/pull/22945
 - :soon: GIC interrupt controller driver, submitted to Linux and OpenWRT
 - :soon: DMA based flash driver (using Airoha's driver)
 - :soon: Reviews addressed and code accepted in Linux kernel
@@ -96,8 +97,9 @@ As of the beginning of the project, there have been a few things that are not id
 - :soon: Drafting and submission of an RFC PoC of a MTD passthrough driver 
 - :soon: Consensus achieved and final version delivered of MTD passthrough
 - :soon: Submission of EcoNet BBT/BMT code to Linux upstream as MTD passthrough
-- :soon: Drafting and submission of an RFC PoC of a MIPS 34Kc intc dispatcher
-- :soon: Consensus achieved and final version of MIPS 34Kc intc dispatcher
+- :white_check_mark: Drafting and submission of an RFC PoC of a MIPS 34Kc intc dispatcher
+- :hourglass: Consensus achieved and final version of MIPS 34Kc intc dispatcher
+  - https://patchwork.kernel.org/project/linux-mips/cover/20260425123531.270548-1-cjd@cjdns.fr/
 - :soon: Submission of multi-core support for EN751221 (using intc dispatcher)
 - :soon: Automated testing harness for real devices + CI delivered
 
