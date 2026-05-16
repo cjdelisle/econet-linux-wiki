@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2026-05-16T18:44:54.437Z
+date: 2026-05-16T18:57:43.060Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -34,9 +34,9 @@ See: [Hardware](/hardware)
   * :x: xPON (Fiber) Support (EN7521 & EN7526)
   * :x: xDSL Support (EN7512 & EN7513)
 * **[EN751627](/hardware/EN751627)** (EN7516, EN7527)
-  * :hourglass: Ability to boot to a console
-  * :hourglass: USB 2.0 support in OpenWRT
-  * :hourglass: PCIe (Wifi) support in OpenWRT
+  * :white_check_mark: Ability to boot to a console
+  * :white_check_mark: USB 2.0 support in OpenWRT
+  * :white_check_mark: PCIe (Wifi) support in OpenWRT
   * :x: Basic Ethernet Support
   * :x: xPON (Fiber) Support (EN7521 & EN7526)
   * :x: xDSL Support (EN7512 & EN7513)
@@ -71,6 +71,8 @@ Right now, there is basic support in OpenWRT build that can be run on certain EN
   * [TP-Link Archer VR1200v (v2)](https://openwrt.org/inbox/toh/tp-link/archer_vr1200v)
   * [SmartFiber XP8421-B](https://openwrt.org/inbox/toh/evaluation_boards/unbranded_boards/smartfiber_xp8421-b)
   * [Nokia G-240G-E](https://openwrt.org/inbox/toh/bt/g-240g-e_1)
+* EN751627
+  * **Zyxel EX3301-T0**
 * EN7528
   * **DASAN H660GM-A**
 
