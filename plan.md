@@ -2,7 +2,7 @@
 title: Project Plan
 description: Plan for the EcoNet Linux project
 published: true
-date: 2026-04-26T07:00:34.233Z
+date: 2026-05-18T14:33:17.943Z
 tags: 
 editor: markdown
 dateCreated: 2025-10-24T12:03:51.502Z
@@ -44,9 +44,11 @@ Before starting the project, there was a [demonstration with legacy code](https:
 
 **Objective**: Proof of USB 3.0 capability on a device that supports it (which most likely requires PHY tuning), and submission of PHY and USB support to upstream kernel and OpenWRT.
 
-- :soon: USB PHY developed and submitted to the Linux kernel
+- :hourglass: USB PHY developed and submitted to the Linux kernel
+  - https://patchwork.kernel.org/project/linux-pci/list/?series=1080753&state=*
 - :soon: USB support submitted to the Linux kernel
-- :soon: Demonstration of working USB 3.0
+- :hourglass: Demonstration of working USB 3.0
+  - https://patchwork.kernel.org/project/linux-mips/patch/20260518141343.401555-3-cjd@cjdns.fr/
 - :soon: Patchset submitted to OpenWRT
 - :soon: Reviews addressed and code accepted in Linux kernel
 
