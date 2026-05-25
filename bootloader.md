@@ -2,7 +2,7 @@
 title: Bootloader
 description: The Tclinux / EcoNet bootloader
 published: true
-date: 2025-03-27T15:22:07.779Z
+date: 2026-05-25T13:36:44.854Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-21T16:38:11.698Z
@@ -135,6 +135,17 @@ If you know the location of the boot flag, you can modify the boot flag directly
 Devices with NAND flash use a Block Mapping Table to handle bad blocks. This is relevant to anything which mounts an FS on the device because you *must* implement the same BMT logic or else the data you write may not be seen, or may even be overwritten by the bootloader.
 
 More information in [BBT/BMT](/bootloader/bbt-bmt).
+
+## A-length bug
+Many versions of the bootloader have a bug in which the kernel length used for the purpose of unpacking is *always* taken from kernel A, no matter whether it is trying to boot kernel A or kernel B.
+
+The bug is visible in the GPL code, as you can see the kernel length is read on line 1156 [kernel_size = READ_FLASH_DWORD(temp_addr) + 0x100;](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/bootrom/bootram/init/main.c#L1156) but the selection of kernel A or B is only made later here [flag = readBootFlagFromFlash();](https://github.com/cjdelisle/EN751221-Linux26/blob/master/tclinux_phoenix/bootrom/bootram/init/main.c#L1181) on line 1181.
+
+The impact of this is if OS_B is *longer* than OS_A, it will not boot correctly. If it is the same length or shorter, it will have no problem.
+
+Since a modern OpenWrt kernel is always larger than the old 2.6.36 kernel used in vendor code, an initial installation in Slot B causes a failure to boot.
+
+[A PR to OpenWrt](https://github.com/openwrt/openwrt/pull/21275) has been proposed to create a stub chain-loader which then loads the actual kernel.
 
 ## Available bootloader commands
 All size arguments must be unprefixed hex values, for example if the memory location is `0x80020000`, you write `80020000`, if the length is `256`, you write `100`.
