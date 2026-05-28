@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2026-05-28T16:22:56.411Z
+date: 2026-05-28T16:24:12.203Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -47,7 +47,7 @@ See: [Hardware](/hardware)
   * Airoha ARM devices which are similar to EcoNet and also documented here
 ### Current Open Patches and Pull Requests
 * **OpenWrt**
-  * None right now :tada:
+  * [ChinaMobile GS3101 Support](https://github.com/openwrt/openwrt/pull/23533)
 * **Linux Kernel**
   * [PCIe Support](https://patchwork.kernel.org/project/linux-mips/list/?series=1094864) v7
   * [Timer support for EN751627/EN7528](https://lore.kernel.org/linux-mips/20260528140046.2897674-1-cjd@cjdns.fr/) v6
