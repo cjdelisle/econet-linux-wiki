@@ -2,7 +2,7 @@
 title: Project Plan
 description: Plan for the EcoNet Linux project
 published: true
-date: 2026-05-18T14:33:17.943Z
+date: 2026-07-31T12:08:55.367Z
 tags: 
 editor: markdown
 dateCreated: 2025-10-24T12:03:51.502Z
@@ -36,8 +36,8 @@ Before starting the project, there was a [demonstration with legacy code](https:
   - https://lore.kernel.org/linux-mips/20260303190948.694783-1-cjd@cjdns.fr/T/#t
 - :white_check_mark: Wifi drivers added to OpenWRT and builds
   * https://github.com/openwrt/openwrt/pull/22208
-- :soon: Patchset submitted to OpenWRT
-- :soon: Reviews addressed and code accepted in Linux kernel
+- :white_check_mark: Patchset submitted to OpenWRT
+- :white_check_mark: Reviews addressed and code accepted in Linux kernel
 
 ## USB 2.0 & 3.0 Support
 [USB 2.0 works in OpenWRT](https://github.com/openwrt/openwrt/commit/c43925313e7179aec7a93aa24a03532f0c1fbaea) without any PHY tuning, and most EN751221 devices only use USB 2.0. However the chipset does have pins for a single USB 3.0 port and [vendor code does control the PHY](https://github.com/cjdelisle/kernel-49/blob/master/arch/mips/tc3262/uphy.c), so it would be inappropriate to attempt upstreaming without demonstrating USB 3.0 capability.
@@ -70,7 +70,7 @@ Currently there are OpenWRT builds of main branch, but not releases. The filesys
 
 - :white_check_mark: Support added to Zyxel PMG5617GA (EN7526), incl. OpenWRT wiki update
 - :soon: OpenWRT package for USB / SD-Card root-fs
-- :soon: OpenWRT optional UBI root-fs overlay support
+- :white_check_mark: OpenWRT optional UBI root-fs overlay support
 - :soon: OpenWRT package repository delivered and installation issues resolved
 - :soon: Branches for two release versions, upgrade path validated
 - :soon: Support EcoNet in OpenWRT image builder
@@ -85,9 +85,9 @@ Currently we haven’t tested on EN751627 because the only device we have has a 
   - Bootloader dump: https://github.com/cjdelisle/en7516_bootloader
   - Bootloader unlocker: https://github.com/cjdelisle/ATENv3
   - Register map: https://docs.google.com/spreadsheets/d/1FyAJ9bYTcF1nJE8PwQ7xcb5vSNepEj5lCs6cgAojrKA/edit?gid=1867175737#gid=1867175737
-- :hourglass: Bootable PoC added to OpenWRT (PoC interrupt controller)
+- :white_check_mark: Bootable PoC added to OpenWRT (PoC interrupt controller)
   - Pull Request: https://github.com/openwrt/openwrt/pull/22945
-- :soon: GIC interrupt controller driver, submitted to Linux and OpenWRT
+- :white_check_mark: GIC interrupt controller driver, submitted to Linux and OpenWRT
 - :soon: DMA based flash driver (using Airoha's driver)
 - :soon: Reviews addressed and code accepted in Linux kernel
 
@@ -100,10 +100,10 @@ As of the beginning of the project, there have been a few things that are not id
 - :soon: Consensus achieved and final version delivered of MTD passthrough
 - :soon: Submission of EcoNet BBT/BMT code to Linux upstream as MTD passthrough
 - :white_check_mark: Drafting and submission of an RFC PoC of a MIPS 34Kc intc dispatcher
-- :hourglass: Consensus achieved and final version of MIPS 34Kc intc dispatcher
+- :white_check_mark: Consensus achieved and final version of MIPS 34Kc intc dispatcher
   - https://patchwork.kernel.org/project/linux-mips/cover/20260425123531.270548-1-cjd@cjdns.fr/
-- :soon: Submission of multi-core support for EN751221 (using intc dispatcher)
-- :soon: Automated testing harness for real devices + CI delivered
+- :white_check_mark: Submission of multi-core support for EN751221 (using intc dispatcher)
+- :white_check_mark: Automated testing harness for real devices + CI delivered
 
 ## xPON Fiber Optic Driver Development
 
