@@ -2,7 +2,7 @@
 title: EcoNet Linux
 description: A project to port mainline Linux to EcoNet MIPS devices
 published: true
-date: 2026-08-04T17:04:51.580Z
+date: 2026-09-18T17:54:10.578Z
 tags: 
 editor: markdown
 dateCreated: 2025-03-18T22:17:18.480Z
@@ -74,6 +74,9 @@ Right now, there is basic support in OpenWRT build that can be run on certain EN
   * [Nokia G-240G-E](https://openwrt.org/inbox/toh/bt/g-240g-e_1)
 * EN751627
   * **Zyxel EX3301-T0**
+  * [Zyxel VMG8825-T50K](https://github.com/koenieee/VMG8825-T50-Openwrt-support/)
+  
+  
 * EN7528
   * **DASAN H660GM-A**
 
