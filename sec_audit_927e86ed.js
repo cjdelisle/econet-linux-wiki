@@ -1,1 +1,0 @@
-alert("sec-audit-js")
