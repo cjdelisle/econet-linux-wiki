@@ -1,5 +1,3 @@
 = Probe
 
-include::/etc/passwd[]
-
-Hello i29970
+Hello CSS test
